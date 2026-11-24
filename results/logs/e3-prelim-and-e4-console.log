@@ -1,0 +1,347 @@
+
+> iot-fleet-command-center@0.1.0 experiment:e3
+> node experiments/e3-ingest-scaling.ts
+
+E3 ingest scaling on AMD EPYC 7543P 32-Core Processor                (8 logical cores, machine 100% busy before start)
+SUT pinned to logical cores 4,5 (max 2); load generator pinned to core 6; window 30 s x 3 reps; DB: in-memory SQLite
+
+== E3a-devices devices=250 rate=0.1/s/dev (offered 25 msg/s) SUT cores=2
+   registered 250 devices with certificates in 4.0 s
+   connected 250/250 (failed 0) in 1.7 s; SUT affinity applied: true
+   rep 1/3: sent 750, stored 751, loss 0.00%, throughput 25 msg/s, commit p50/p99 35/63 ms, SUT cpu 0.02 cores, gen cpu 0.02 cores, rss 121 MB -> PASS
+   rep 2/3: sent 751, stored 752, loss 0.00%, throughput 25 msg/s, commit p50/p99 33/63 ms, SUT cpu 0.02 cores, gen cpu 0.01 cores, rss 122 MB -> PASS
+   rep 3/3: sent 751, stored 751, loss 0.00%, throughput 25 msg/s, commit p50/p99 46/64 ms, SUT cpu 0.03 cores, gen cpu 0.02 cores, rss 122 MB -> PASS
+
+== E3a-devices devices=500 rate=0.1/s/dev (offered 50 msg/s) SUT cores=2
+   registered 500 devices with certificates in 6.4 s
+   connected 500/500 (failed 0) in 4.2 s; SUT affinity applied: true
+   rep 1/3: sent 1501, stored 1504, loss 0.00%, throughput 50 msg/s, commit p50/p99 32/63 ms, SUT cpu 0.04 cores, gen cpu 0.02 cores, rss 154 MB -> PASS
+   rep 2/3: sent 1501, stored 1502, loss 0.00%, throughput 50 msg/s, commit p50/p99 33/63 ms, SUT cpu 0.02 cores, gen cpu 0.02 cores, rss 156 MB -> PASS
+   rep 3/3: sent 1501, stored 1501, loss 0.00%, throughput 50 msg/s, commit p50/p99 33/64 ms, SUT cpu 0.02 cores, gen cpu 0.02 cores, rss 157 MB -> PASS
+
+== E3a-devices devices=1000 rate=0.1/s/dev (offered 100 msg/s) SUT cores=2
+   registered 1000 devices with certificates in 8.2 s
+   connected 1000/1000 (failed 0) in 6.9 s; SUT affinity applied: true
+   rep 1/3: sent 3002, stored 3003, loss 0.00%, throughput 100 msg/s, commit p50/p99 36/64 ms, SUT cpu 0.05 cores, gen cpu 0.03 cores, rss 213 MB -> PASS
+   rep 2/3: sent 3001, stored 3002, loss 0.00%, throughput 100 msg/s, commit p50/p99 34/64 ms, SUT cpu 0.05 cores, gen cpu 0.02 cores, rss 220 MB -> PASS
+   rep 3/3: sent 3002, stored 3005, loss 0.00%, throughput 100 msg/s, commit p50/p99 44/63 ms, SUT cpu 0.03 cores, gen cpu 0.02 cores, rss 220 MB -> PASS
+
+== E3a-devices devices=2000 rate=0.1/s/dev (offered 200 msg/s) SUT cores=2
+   registered 2000 devices with certificates in 20.4 s
+   connected 2000/2000 (failed 0) in 14.1 s; SUT affinity applied: true
+   rep 1/3: sent 6001, stored 6004, loss 0.00%, throughput 200 msg/s, commit p50/p99 34/64 ms, SUT cpu 0.07 cores, gen cpu 0.04 cores, rss 338 MB -> PASS
+   rep 2/3: sent 6002, stored 6006, loss 0.00%, throughput 200 msg/s, commit p50/p99 34/63 ms, SUT cpu 0.05 cores, gen cpu 0.03 cores, rss 345 MB -> PASS
+   rep 3/3: sent 6003, stored 6010, loss 0.00%, throughput 200 msg/s, commit p50/p99 34/64 ms, SUT cpu 0.06 cores, gen cpu 0.04 cores, rss 348 MB -> PASS
+
+== E3a-devices devices=4000 rate=0.1/s/dev (offered 400 msg/s) SUT cores=2
+   registered 4000 devices with certificates in 42.2 s
+   connected 4000/4000 (failed 0) in 29.2 s; SUT affinity applied: true
+   rep 1/3: sent 12008, stored 12014, loss 0.00%, throughput 400 msg/s, commit p50/p99 47/944 ms, SUT cpu 0.12 cores, gen cpu 0.07 cores, rss 672 MB -> PASS
+   rep 2/3: sent 12006, stored 12024, loss 0.00%, throughput 400 msg/s, commit p50/p99 34/64 ms, SUT cpu 0.08 cores, gen cpu 0.05 cores, rss 677 MB -> PASS
+   rep 3/3: sent 12006, stored 12012, loss 0.00%, throughput 400 msg/s, commit p50/p99 34/64 ms, SUT cpu 0.06 cores, gen cpu 0.05 cores, rss 679 MB -> PASS
+
+== E3a-devices devices=8000 rate=0.1/s/dev (offered 800 msg/s) SUT cores=2
+   registered 8000 devices with certificates in 99.3 s
+   connected 8000/8000 (failed 0) in 61.7 s; SUT affinity applied: true
+   rep 1/3: sent 24008, stored 24044, loss 0.00%, throughput 800 msg/s, commit p50/p99 34/65 ms, SUT cpu 0.16 cores, gen cpu 0.10 cores, rss 1146 MB -> PASS
+   rep 2/3: sent 24004, stored 24016, loss 0.00%, throughput 800 msg/s, commit p50/p99 35/66 ms, SUT cpu 0.11 cores, gen cpu 0.08 cores, rss 1163 MB -> PASS
+   rep 3/3: sent 24056, stored 24108, loss 0.00%, throughput 800 msg/s, commit p50/p99 48/1025 ms, SUT cpu 0.13 cores, gen cpu 0.09 cores, rss 1180 MB -> FAIL
+
+== E3b-rate devices=500 rate=1/s/dev (offered 500 msg/s) SUT cores=2
+   registered 500 devices with certificates in 4.6 s
+   connected 500/500 (failed 0) in 3.7 s; SUT affinity applied: true
+   rep 1/3: sent 15015, stored 15040, loss 0.00%, throughput 500 msg/s, commit p50/p99 37/70 ms, SUT cpu 0.11 cores, gen cpu 0.07 cores, rss 213 MB -> PASS
+   rep 2/3: sent 15005, stored 15037, loss 0.00%, throughput 500 msg/s, commit p50/p99 36/68 ms, SUT cpu 0.08 cores, gen cpu 0.05 cores, rss 215 MB -> PASS
+   rep 3/3: sent 15010, stored 15032, loss 0.00%, throughput 500 msg/s, commit p50/p99 36/69 ms, SUT cpu 0.10 cores, gen cpu 0.07 cores, rss 169 MB -> PASS
+
+== E3b-rate devices=500 rate=2/s/dev (offered 1000 msg/s) SUT cores=2
+   registered 500 devices with certificates in 5.3 s
+   connected 500/500 (failed 0) in 3.2 s; SUT affinity applied: true
+   rep 1/3: sent 30005, stored 30035, loss 0.00%, throughput 1000 msg/s, commit p50/p99 38/160 ms, SUT cpu 0.17 cores, gen cpu 0.11 cores, rss 217 MB -> PASS
+   rep 2/3: sent 30010, stored 30040, loss 0.00%, throughput 999 msg/s, commit p50/p99 42/220 ms, SUT cpu 0.16 cores, gen cpu 0.08 cores, rss 221 MB -> PASS
+   rep 3/3: sent 30010, stored 30055, loss 0.00%, throughput 1000 msg/s, commit p50/p99 39/90 ms, SUT cpu 0.16 cores, gen cpu 0.10 cores, rss 179 MB -> PASS
+
+== E3b-rate devices=500 rate=4/s/dev (offered 2000 msg/s) SUT cores=2
+   registered 500 devices with certificates in 8.8 s
+   connected 500/500 (failed 0) in 4.3 s; SUT affinity applied: true
+   rep 1/3: sent 60070, stored 60170, loss 0.00%, throughput 2001 msg/s, commit p50/p99 49/356 ms, SUT cpu 0.27 cores, gen cpu 0.15 cores, rss 243 MB -> PASS
+   rep 2/3: sent 60020, stored 60217, loss 0.00%, throughput 2004 msg/s, commit p50/p99 58/332 ms, SUT cpu 0.30 cores, gen cpu 0.17 cores, rss 265 MB -> PASS
+   rep 3/3: sent 60050, stored 60170, loss 0.00%, throughput 2002 msg/s, commit p50/p99 54/273 ms, SUT cpu 0.28 cores, gen cpu 0.15 cores, rss 206 MB -> PASS
+
+== E3b-rate devices=500 rate=8/s/dev (offered 4000 msg/s) SUT cores=2
+   registered 500 devices with certificates in 4.5 s
+   connected 500/500 (failed 0) in 3.5 s; SUT affinity applied: true
+   rep 1/3: sent 121060, stored 121953, loss 0.00%, throughput 4013 msg/s, commit p50/p99 119/438 ms, SUT cpu 0.42 cores, gen cpu 0.26 cores, rss 255 MB -> PASS
+   rep 2/3: sent 120900, stored 121486, loss 0.00%, throughput 3989 msg/s, commit p50/p99 57/305 ms, SUT cpu 0.43 cores, gen cpu 0.24 cores, rss 335 MB -> PASS
+   rep 3/3: sent 120600, stored 121446, loss 0.00%, throughput 4006 msg/s, commit p50/p99 168/508 ms, SUT cpu 0.37 cores, gen cpu 0.21 cores, rss 350 MB -> PASS
+
+== E3b-rate devices=500 rate=16/s/dev (offered 8000 msg/s) SUT cores=2
+   registered 500 devices with certificates in 9.2 s
+   connected 500/500 (failed 0) in 3.3 s; SUT affinity applied: true
+   rep 1/3: sent 241000, stored 243235, loss 0.00%, throughput 8047 msg/s, commit p50/p99 221/928 ms, SUT cpu 0.46 cores, gen cpu 0.30 cores, rss 333 MB -> PASS
+   rep 2/3: sent 241193, stored 242488, loss 0.00%, throughput 8019 msg/s, commit p50/p99 165/901 ms, SUT cpu 0.53 cores, gen cpu 0.32 cores, rss 387 MB -> PASS
+   rep 3/3: sent 243384, stored 244378, loss 0.00%, throughput 7949 msg/s, commit p50/p99 211/756 ms, SUT cpu 0.46 cores, gen cpu 0.30 cores, rss 404 MB -> PASS
+
+== E3b-rate devices=500 rate=32/s/dev (offered 16000 msg/s) SUT cores=2
+   registered 500 devices with certificates in 7.2 s
+   connected 500/500 (failed 0) in 3.8 s; SUT affinity applied: true
+   rep 1/3: sent 491167, stored 560000, loss 0.00%, throughput 6965 msg/s, commit p50/p99 20121/30521 ms, SUT cpu 0.39 cores, gen cpu 0.37 cores, rss 994 MB -> FAIL
+   rep 2/3: sent 480583, stored 540068, loss 0.00%, throughput 11440 msg/s, commit p50/p99 10780/16717 ms, SUT cpu 0.45 cores, gen cpu 0.43 cores, rss 1036 MB -> FAIL
+   rep 3/3: sent 531167, stored 540673, loss 0.00%, throughput 10934 msg/s, commit p50/p99 8357/13689 ms, SUT cpu 0.48 cores, gen cpu 0.45 cores, rss 1121 MB -> FAIL
+
+== E3c-onecore devices=500 rate=1/s/dev (offered 500 msg/s) SUT cores=1
+   registered 500 devices with certificates in 8.7 s
+   connected 500/500 (failed 0) in 5.5 s; SUT affinity applied: true
+   rep 1/3: sent 15005, stored 15020, loss 0.00%, throughput 500 msg/s, commit p50/p99 42/2282 ms, SUT cpu 0.09 cores, gen cpu 0.06 cores, rss 186 MB -> FAIL
+   rep 2/3: sent 15005, stored 15030, loss 0.00%, throughput 500 msg/s, commit p50/p99 36/68 ms, SUT cpu 0.10 cores, gen cpu 0.07 cores, rss 211 MB -> PASS
+   rep 3/3: sent 15007, stored 15030, loss 0.00%, throughput 500 msg/s, commit p50/p99 39/658 ms, SUT cpu 0.08 cores, gen cpu 0.05 cores, rss 213 MB -> PASS
+
+ceilings (largest step that met every criterion in every repetition):
+{
+  "E3a": {
+    "rule": {
+      "maxLoss": 0.01,
+      "maxP99Ms": 1000,
+      "minConnectedShare": 0.99
+    },
+    "ratePerDevice": 0.1,
+    "largestPassingDevices": 4000,
+    "firstFailingDevices": 8000,
+    "ladderExhausted": false,
+    "stopped": null,
+    "ladder": [
+      250,
+      500,
+      1000,
+      2000,
+      4000,
+      8000,
+      16000,
+      32000
+    ]
+  },
+  "E3b": {
+    "rule": {
+      "maxLoss": 0.01,
+      "maxP99Ms": 1000,
+      "minConnectedShare": 0.99
+    },
+    "devices": 500,
+    "largestPassingRatePerDevice": 16,
+    "largestPassingMsgPerSec": 8000,
+    "firstFailingRatePerDevice": 32,
+    "ladderExhausted": false,
+    "ladder": [
+      1,
+      2,
+      4,
+      8,
+      16,
+      32,
+      64,
+      128
+    ]
+  },
+  "E3c": {
+    "rule": {
+      "maxLoss": 0.01,
+      "maxP99Ms": 1000,
+      "minConnectedShare": 0.99
+    },
+    "devices": 500,
+    "sutCores": 1,
+    "largestPassingRatePerDevice": 0,
+    "largestPassingMsgPerSec": 0,
+    "firstFailingRatePerDevice": 1,
+    "ladderExhausted": false
+  }
+}
+
+wrote results/e3-*.csv and e3-summary.json in 2105 s
+
+> iot-fleet-command-center@0.1.0 experiment:e4
+> node experiments/e4-identity-overhead.ts
+
+E4 identity overhead: 3 modes x 10 blocks x 200 sequential connections
+hardware: AMD EPYC 7543P 32-Core Processor               , SUT on logical cores 4,5 (pinned: true), driver on core 6 (pinned: true), machine busy before: 100%
+  block 1/10 done
+  block 2/10 done
+  block 3/10 done
+  block 4/10 done
+  block 5/10 done
+  block 6/10 done
+  block 7/10 done
+  block 8/10 done
+  block 9/10 done
+  block 10/10 done
+
+median connect time per block, mean over blocks (ms):
+  mtls          5.74 ms [5.50, 6.01]   broker CPU 2907 us/conn
+  secret-tls    3.71 ms [3.54, 3.93]   broker CPU 1875 us/conn
+  secret-plain  0.64 ms [0.58, 0.73]   broker CPU 789 us/conn
+  mtls vs secret-tls: median connect time: 55.6% [47.7, 63.6]
+  mtls vs secret-tls: broker CPU per connection: 56.4% [43.9, 73.1]
+  mtls vs secret-plain: median connect time: 818.1% [725.8, 899.1]
+  secret-tls vs secret-plain: median connect time: 487.3% [448.1, 523.0]
+  mtls vs secret-plain: broker CPU per connection: 311.9% [238.6, 388.4]
+
+wrote results/e4-*.csv and e4-summary.json
+# Results summary (generated by experiments/summarize.ts from results/*.json)
+
+## E1 rollout safety (SIMULATED faults, real broker/controller)
+
+Fleet 100 simulated devices, 10 runs per cell, first ring = 5 devices. Hardware: AMD EPYC 7543P 32-Core Processor, logical cores 4,5, machine 100% busy before start.
+
+| Scenario / policy | n | Share of fleet that ran the faulty image (mean) | 95% CI | Runs paused | Median time to pause | Notes |
+|---|---|---|---|---|---|---|
+| degraded-p1.0/gated | 10 | 5.0% | [5.0%, 5.0%] | 10/10 | 2178 ms (CI [2164, 2214]; 10.9 telemetry intervals) | exposure <= first ring in 10/10 runs; harmed (mean) 5.0%; harmed and still faulty at end 0.0%; final states {"rolled_back":10} |
+| degraded-p1.0/timer | 10 | 100.0% | [100.0%, 100.0%] | 0/10 | no pause | exposure <= first ring in 0/10 runs; harmed (mean) 100.0%; harmed and still faulty at end 100.0%; final states {"completed":10} |
+| degraded-p1.0/all-at-once | 10 | 100.0% | [100.0%, 100.0%] | 0/10 | no pause | exposure <= first ring in 10/10 runs; harmed (mean) 100.0%; harmed and still faulty at end 100.0%; final states {"completed":10} |
+| degraded-p0.3/gated | 10 | 5.0% | [5.0%, 5.0%] | 10/10 | 2199 ms (CI [2175, 2354]; 11.0 telemetry intervals) | exposure <= first ring in 10/10 runs; harmed (mean) 2.1%; harmed and still faulty at end 0.0%; final states {"rolled_back":10} |
+| degraded-p0.3/timer | 10 | 100.0% | [100.0%, 100.0%] | 0/10 | no pause | exposure <= first ring in 0/10 runs; harmed (mean) 30.0%; harmed and still faulty at end 30.0%; final states {"completed":10} |
+| degraded-p0.3/all-at-once | 10 | 100.0% | [100.0%, 100.0%] | 0/10 | no pause | exposure <= first ring in 10/10 runs; harmed (mean) 33.6%; harmed and still faulty at end 33.6%; final states {"completed":10} |
+| degraded-p0.1/gated | 10 | 31.0% | [10.5%, 53.0%] | 10/10 | 2209 ms (CI [2165, 6892]; 11.0 telemetry intervals) | exposure <= first ring in 6/10 runs; harmed (mean) 4.3%; harmed and still faulty at end 0.0%; final states {"rolled_back":10} |
+| degraded-p0.1/timer | 10 | 100.0% | [100.0%, 100.0%] | 0/10 | no pause | exposure <= first ring in 0/10 runs; harmed (mean) 8.9%; harmed and still faulty at end 8.9%; final states {"completed":10} |
+| degraded-p0.1/all-at-once | 10 | 100.0% | [100.0%, 100.0%] | 0/10 | no pause | exposure <= first ring in 10/10 runs; harmed (mean) 9.2%; harmed and still faulty at end 9.2%; final states {"completed":10} |
+| bootloop-p1.0/gated | 10 | 5.0% | [5.0%, 5.0%] | 10/10 | 2199 ms (CI [2154, 2217]; 11.0 telemetry intervals) | exposure <= first ring in 10/10 runs; harmed (mean) 5.0%; harmed and still faulty at end 0.0%; final states {"rolled_back":10} |
+| bootloop-p1.0/timer | 10 | 100.0% | [100.0%, 100.0%] | 0/10 | no pause | exposure <= first ring in 0/10 runs; harmed (mean) 100.0%; harmed and still faulty at end 0.0%; final states {"completed":10} |
+| bootloop-p1.0/all-at-once | 10 | 100.0% | [100.0%, 100.0%] | 0/10 | no pause | exposure <= first ring in 10/10 runs; harmed (mean) 100.0%; harmed and still faulty at end 0.0%; final states {"completed":10} |
+| brick-p1.0/gated | 10 | 5.0% | [5.0%, 5.0%] | 10/10 | 4556 ms (CI [4541, 4595]; 22.8 telemetry intervals) | exposure <= first ring in 10/10 runs; harmed (mean) 5.0%; harmed and still faulty at end 5.0%; final states {"rolled_back":10} |
+| brick-p1.0/timer | 10 | 100.0% | [100.0%, 100.0%] | 0/10 | no pause | exposure <= first ring in 0/10 runs; harmed (mean) 100.0%; harmed and still faulty at end 100.0%; final states {"completed":10} |
+| brick-p1.0/all-at-once | 10 | 100.0% | [100.0%, 100.0%] | 0/10 | no pause | exposure <= first ring in 10/10 runs; harmed (mean) 100.0%; harmed and still faulty at end 100.0%; final states {"completed":10} |
+| healthy-control/gated | 10 | 100.0% | [100.0%, 100.0%] | 0/10 | no pause | exposure <= first ring in 0/10 runs; harmed (mean) 0.0%; harmed and still faulty at end 0.0%; final states {"completed":10} |
+
+| Comparison (exposure share) | Mann-Whitney p | Holm-adjusted p (family: all E1 comparisons) | Cliff's delta | n (gated / baseline) |
+|---|---|---|---|---|
+| degraded-p1.0: exposure gated vs all-at-once | 0.0000 | 0.0001 | -1.00 | 10 / 10 |
+| degraded-p1.0: exposure gated vs timer | 0.0000 | 0.0001 | -1.00 | 10 / 10 |
+| degraded-p0.3: exposure gated vs all-at-once | 0.0000 | 0.0001 | -1.00 | 10 / 10 |
+| degraded-p0.3: exposure gated vs timer | 0.0000 | 0.0001 | -1.00 | 10 / 10 |
+| degraded-p0.1: exposure gated vs all-at-once | 0.0002 | 0.0003 | -0.90 | 10 / 10 |
+| degraded-p0.1: exposure gated vs timer | 0.0002 | 0.0003 | -0.90 | 10 / 10 |
+| bootloop-p1.0: exposure gated vs all-at-once | 0.0000 | 0.0001 | -1.00 | 10 / 10 |
+| bootloop-p1.0: exposure gated vs timer | 0.0000 | 0.0001 | -1.00 | 10 / 10 |
+| brick-p1.0: exposure gated vs all-at-once | 0.0000 | 0.0001 | -1.00 | 10 / 10 |
+| brick-p1.0: exposure gated vs timer | 0.0000 | 0.0001 | -1.00 | 10 / 10 |
+
+## E2 early failure detection (SIMULATED fleets)
+
+20 replicate fleets (seeds 1..20) x 200 devices x 408 h. Lead time = hard-failure time minus first alert.
+
+| Detector / fault kind | replicates | recall with lead >= 24 h | 95% CI | recall (any lead > 0) | false-positive devices (healthy) | 95% CI | precision | pooled lead time, median (h) | 95% CI | pooled n |
+|---|---|---|---|---|---|---|---|---|---|---|
+| anomaly/all | 20 | 97.6% | [96.7%, 98.5%] | 97.8% | 0.00% | [0.00%, 0.00%] | 100.0% | 91.4 | [87.0, 95.3] | 782 |
+| anomaly/battery_decay | 20 | 95.2% | [93.5%, 97.0%] | 95.5% | 0.00% | [0.00%, 0.00%] | 100.0% | 85.3 | [79.4, 92.3] | 382 |
+| anomaly/sensor_drift | 20 | 100.0% | [100.0%, 100.0%] | 100.0% | 0.00% | [0.00%, 0.00%] | 100.0% | 95.3 | [90.3, 102.1] | 400 |
+| static-battery-20/all | 20 | 54.8% | [50.7%, 58.7%] | 100.0% | 0.00% | [0.00%, 0.00%] | 100.0% | 26.5 | [23.8, 28.1] | 400 |
+| static-battery-20/battery_decay | 20 | 54.8% | [50.7%, 58.7%] | 100.0% | 0.00% | [0.00%, 0.00%] | 100.0% | 26.5 | [23.8, 28.1] | 400 |
+| static-battery-30/all | 20 | 84.0% | [81.0%, 86.8%] | 100.0% | 17.88% | [16.50%, 19.25%] | 41.6% | 44.8 | [40.0, 47.5] | 400 |
+| static-battery-30/battery_decay | 20 | 84.0% | [81.0%, 86.8%] | 100.0% | 17.88% | [16.50%, 19.25%] | 41.6% | 44.8 | [40.0, 47.5] | 400 |
+| static-sensor-range/all | 20 | 21.5% | [18.2%, 25.0%] | 65.3% | 0.00% | [0.00%, 0.00%] | 100.0% | 17.0 | [14.5, 19.3] | 261 |
+| static-sensor-range/sensor_drift | 20 | 21.5% | [18.2%, 25.0%] | 65.3% | 0.00% | [0.00%, 0.00%] | 100.0% | 17.0 | [14.5, 19.3] | 261 |
+
+| Paired comparison across replicates | Wilcoxon signed-rank p | Holm-adjusted p (family: E2 comparisons) | Cliff's delta | pairs |
+|---|---|---|---|---|
+| recall24 anomaly vs static-battery-20 (battery_decay) | 0.00009 | 0.00016 | 1.00 | 20 |
+| recall24 anomaly vs static-sensor-range (sensor_drift) | 0.00008 | 0.00016 | 1.00 | 20 |
+
+## E3 ingest scaling (SIMULATED devices, real ingest path)
+
+Criteria: loss <= 1%, p99 commit latency <= 1000 ms, >= 99% of devices connected. 3 repetitions of 30 s per step. DB: SQLite in memory.
+
+| Ladder | Devices | Rate / device (msg/s) | Offered msg/s | reps run | loss (mean of reps) | stored throughput (msg/s, mean) | commit p99 (ms, median of reps) | max p99 over reps (ms) | SUT CPU (cores, mean) | SUT RSS (MB) | Verdict |
+|---|---|---|---|---|---|---|---|---|---|---|---|
+| E3a-devices | 250 | 0.1 | 25 | 3 | 0.00% | 25 | 63 | 64 | 0.02 | 122 | PASS |
+| E3a-devices | 500 | 0.1 | 50 | 3 | 0.00% | 50 | 63 | 64 | 0.03 | 156 | PASS |
+| E3a-devices | 1000 | 0.1 | 100 | 3 | 0.00% | 100 | 64 | 64 | 0.04 | 218 | PASS |
+| E3a-devices | 2000 | 0.1 | 200 | 3 | 0.00% | 200 | 64 | 64 | 0.06 | 344 | PASS |
+| E3a-devices | 4000 | 0.1 | 400 | 3 | 0.00% | 400 | 64 | 944 | 0.09 | 676 | PASS |
+| E3a-devices | 8000 | 0.1 | 800 | 3 | 0.00% | 800 | 66 | 1025 | 0.13 | 1163 | FAIL |
+| E3b-rate | 500 | 1 | 500 | 3 | 0.00% | 500 | 69 | 70 | 0.10 | 199 | PASS |
+| E3b-rate | 500 | 2 | 1000 | 3 | 0.00% | 1000 | 160 | 220 | 0.16 | 206 | PASS |
+| E3b-rate | 500 | 4 | 2000 | 3 | 0.00% | 2002 | 332 | 356 | 0.28 | 238 | PASS |
+| E3b-rate | 500 | 8 | 4000 | 3 | 0.00% | 4002 | 438 | 508 | 0.40 | 313 | PASS |
+| E3b-rate | 500 | 16 | 8000 | 3 | 0.00% | 8005 | 901 | 928 | 0.48 | 375 | PASS |
+| E3b-rate | 500 | 32 | 16000 | 3 | 0.00% | 9780 | 16717 | 30521 | 0.44 | 1050 | FAIL |
+| E3c-onecore | 500 | 1 | 500 | 3 | 0.00% | 500 | 658 | 2282 | 0.09 | 204 | FAIL |
+
+```json
+{
+  "E3a": {
+    "rule": {
+      "maxLoss": 0.01,
+      "maxP99Ms": 1000,
+      "minConnectedShare": 0.99
+    },
+    "ratePerDevice": 0.1,
+    "largestPassingDevices": 4000,
+    "firstFailingDevices": 8000,
+    "ladderExhausted": false,
+    "stopped": null,
+    "ladder": [
+      250,
+      500,
+      1000,
+      2000,
+      4000,
+      8000,
+      16000,
+      32000
+    ]
+  },
+  "E3b": {
+    "rule": {
+      "maxLoss": 0.01,
+      "maxP99Ms": 1000,
+      "minConnectedShare": 0.99
+    },
+    "devices": 500,
+    "largestPassingRatePerDevice": 16,
+    "largestPassingMsgPerSec": 8000,
+    "firstFailingRatePerDevice": 32,
+    "ladderExhausted": false,
+    "ladder": [
+      1,
+      2,
+      4,
+      8,
+      16,
+      32,
+      64,
+      128
+    ]
+  },
+  "E3c": {
+    "rule": {
+      "maxLoss": 0.01,
+      "maxP99Ms": 1000,
+      "minConnectedShare": 0.99
+    },
+    "devices": 500,
+    "sutCores": 1,
+    "largestPassingRatePerDevice": 0,
+    "largestPassingMsgPerSec": 0,
+    "firstFailingRatePerDevice": 1,
+    "ladderExhausted": false
+  }
+}
+```
+
+## E4 identity overhead
+
+10 blocks x 200 sequential connections per mode, interleaved in random order. Transport: named pipe / unix socket (not TCP).
+
+| Mode | connections | median connect time per block, mean (ms) | 95% CI | p95 connect time (ms, mean of blocks) | broker CPU per connection (us) | 95% CI |
+|---|---|---|---|---|---|---|
+| mtls | 2000 | 5.74 | [5.50, 6.01] | 12.19 | 2907 | [2673, 3180] |
+| secret-tls | 2000 | 3.71 | [3.54, 3.93] | 6.41 | 1875 | [1727, 2039] |
+| secret-plain | 2000 | 0.64 | [0.58, 0.73] | 3.69 | 789 | [611, 1014] |
+
+| Comparison (paired by block) | blocks | overhead | 95% CI |
+|---|---|---|---|
+| mtls vs secret-tls: median connect time | 10 | 55.6% | [47.7%, 63.6%] |
+| mtls vs secret-tls: broker CPU per connection | 10 | 56.4% | [43.9%, 73.1%] |
+| mtls vs secret-plain: median connect time | 10 | 818.1% | [725.8%, 899.1%] |
+| secret-tls vs secret-plain: median connect time | 10 | 487.3% | [448.1%, 523.0%] |
+| mtls vs secret-plain: broker CPU per connection | 10 | 311.9% | [238.6%, 388.4%] |
+

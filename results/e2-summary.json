@@ -1,0 +1,496 @@
+{
+  "experiment": "E2",
+  "simulated": true,
+  "pilot": false,
+  "quick": false,
+  "startedAt": "2026-10-21T23:37:39.948Z",
+  "wallSeconds": 1279.126,
+  "seeds": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20
+  ],
+  "protocol": {
+    "devicesPerFleet": 200,
+    "horizonHours": 408,
+    "sampleEveryMin": 15,
+    "batteryFaultFraction": 0.1,
+    "sensorFaultFraction": 0.1,
+    "faultOnsetHours": [
+      96,
+      192
+    ],
+    "batteryTtfHours": [
+      36,
+      168
+    ],
+    "sensorTtfHours": [
+      48,
+      192
+    ],
+    "evaluationEveryHours": 1,
+    "leadTimeCriterionHours": 24,
+    "detectors": {
+      "anomaly": {
+        "zThreshold": 6,
+        "minPeers": 8,
+        "consecutive": 3,
+        "battery": {
+          "windowH": 12,
+          "minPairs": 6,
+          "sigmaFloor": 0.02,
+          "minExcess": 0.15
+        },
+        "sensor": {
+          "lagH": 24,
+          "recentH": 6,
+          "minPairs": 4,
+          "sigmaFloor": 0.1,
+          "minExcess": 0.5
+        }
+      },
+      "static-battery-20": "threshold: battery average over 1 h < 20 %",
+      "static-battery-30": "threshold: battery average over 1 h < 30 %",
+      "static-sensor-range": "threshold: sensor average over 1 h outside [10, 30]"
+    }
+  },
+  "hardware": {
+    "cpuModel": "AMD EPYC 7543P 32-Core Processor               ",
+    "logicalCores": 8,
+    "totalMemGB": 28,
+    "platform": "win32 x64",
+    "osRelease": "10.0.26200",
+    "node": "v25.9.0",
+    "machineCpuBusyPctBefore": 100,
+    "coresAvailableToExperiment": "logical cores 4,5",
+    "affinityApplied": true
+  },
+  "lockfileSha256Prefix": "b06b22d0101304d1",
+  "summary": {
+    "anomaly/all": {
+      "replicates": 20,
+      "targetsPerReplicate": 40,
+      "recall24": {
+        "n": 20,
+        "center": 0.9762500000000001,
+        "ciLow": 0.9674999999999999,
+        "ciHigh": 0.985,
+        "sd": 0.020639448687047413,
+        "iqr": 0.025000000000000022
+      },
+      "recallAny": {
+        "n": 20,
+        "center": 0.9775,
+        "ciLow": 0.9675,
+        "ciHigh": 0.9862500000000001,
+        "sd": 0.021306040655669767,
+        "iqr": 0.025000000000000022
+      },
+      "fpRate": {
+        "n": 20,
+        "center": 0,
+        "ciLow": 0,
+        "ciHigh": 0,
+        "sd": 0,
+        "iqr": 0
+      },
+      "precision": {
+        "n": 20,
+        "center": 1,
+        "ciLow": 1,
+        "ciHigh": 1,
+        "sd": 0,
+        "iqr": 0
+      },
+      "pooledLeadHours": {
+        "n": 782,
+        "median": 91.375,
+        "ciLow": 87,
+        "ciHigh": 95.25,
+        "q25": 62.8125,
+        "q75": 123
+      }
+    },
+    "anomaly/battery_decay": {
+      "replicates": 20,
+      "targetsPerReplicate": 20,
+      "recall24": {
+        "n": 20,
+        "center": 0.9524999999999997,
+        "ciLow": 0.9349999999999998,
+        "ciHigh": 0.97,
+        "sd": 0.04127889737409483,
+        "iqr": 0.050000000000000044
+      },
+      "recallAny": {
+        "n": 20,
+        "center": 0.9549999999999997,
+        "ciLow": 0.9349999999999999,
+        "ciHigh": 0.9724999999999999,
+        "sd": 0.04261208131133952,
+        "iqr": 0.050000000000000044
+      },
+      "fpRate": {
+        "n": 20,
+        "center": 0,
+        "ciLow": 0,
+        "ciHigh": 0,
+        "sd": 0,
+        "iqr": 0
+      },
+      "precision": {
+        "n": 20,
+        "center": 1,
+        "ciLow": 1,
+        "ciHigh": 1,
+        "sd": 0,
+        "iqr": 0
+      },
+      "pooledLeadHours": {
+        "n": 382,
+        "median": 85.25,
+        "ciLow": 79.375,
+        "ciHigh": 92.25,
+        "q25": 56.75,
+        "q75": 119
+      }
+    },
+    "anomaly/sensor_drift": {
+      "replicates": 20,
+      "targetsPerReplicate": 20,
+      "recall24": {
+        "n": 20,
+        "center": 1,
+        "ciLow": 1,
+        "ciHigh": 1,
+        "sd": 0,
+        "iqr": 0
+      },
+      "recallAny": {
+        "n": 20,
+        "center": 1,
+        "ciLow": 1,
+        "ciHigh": 1,
+        "sd": 0,
+        "iqr": 0
+      },
+      "fpRate": {
+        "n": 20,
+        "center": 0,
+        "ciLow": 0,
+        "ciHigh": 0,
+        "sd": 0,
+        "iqr": 0
+      },
+      "precision": {
+        "n": 20,
+        "center": 1,
+        "ciLow": 1,
+        "ciHigh": 1,
+        "sd": 0,
+        "iqr": 0
+      },
+      "pooledLeadHours": {
+        "n": 400,
+        "median": 95.25,
+        "ciLow": 90.25,
+        "ciHigh": 102.125,
+        "q25": 67.5,
+        "q75": 125.8125
+      }
+    },
+    "static-battery-20/all": {
+      "replicates": 20,
+      "targetsPerReplicate": 20,
+      "recall24": {
+        "n": 20,
+        "center": 0.5475000000000001,
+        "ciLow": 0.5074375,
+        "ciHigh": 0.5874999999999999,
+        "sd": 0.09385739462778513,
+        "iqr": 0.11249999999999999
+      },
+      "recallAny": {
+        "n": 20,
+        "center": 1,
+        "ciLow": 1,
+        "ciHigh": 1,
+        "sd": 0,
+        "iqr": 0
+      },
+      "fpRate": {
+        "n": 20,
+        "center": 0,
+        "ciLow": 0,
+        "ciHigh": 0,
+        "sd": 0,
+        "iqr": 0
+      },
+      "precision": {
+        "n": 20,
+        "center": 1,
+        "ciLow": 1,
+        "ciHigh": 1,
+        "sd": 0,
+        "iqr": 0
+      },
+      "pooledLeadHours": {
+        "n": 400,
+        "median": 26.5,
+        "ciLow": 23.75,
+        "ciHigh": 28.125,
+        "q25": 17.6875,
+        "q75": 36.0625
+      }
+    },
+    "static-battery-20/battery_decay": {
+      "replicates": 20,
+      "targetsPerReplicate": 20,
+      "recall24": {
+        "n": 20,
+        "center": 0.5475000000000001,
+        "ciLow": 0.5074375,
+        "ciHigh": 0.5874999999999999,
+        "sd": 0.09385739462778513,
+        "iqr": 0.11249999999999999
+      },
+      "recallAny": {
+        "n": 20,
+        "center": 1,
+        "ciLow": 1,
+        "ciHigh": 1,
+        "sd": 0,
+        "iqr": 0
+      },
+      "fpRate": {
+        "n": 20,
+        "center": 0,
+        "ciLow": 0,
+        "ciHigh": 0,
+        "sd": 0,
+        "iqr": 0
+      },
+      "precision": {
+        "n": 20,
+        "center": 1,
+        "ciLow": 1,
+        "ciHigh": 1,
+        "sd": 0,
+        "iqr": 0
+      },
+      "pooledLeadHours": {
+        "n": 400,
+        "median": 26.5,
+        "ciLow": 23.75,
+        "ciHigh": 28.125,
+        "q25": 17.6875,
+        "q75": 36.0625
+      }
+    },
+    "static-battery-30/all": {
+      "replicates": 20,
+      "targetsPerReplicate": 20,
+      "recall24": {
+        "n": 20,
+        "center": 0.8399999999999999,
+        "ciLow": 0.8099999999999998,
+        "ciHigh": 0.8674999999999999,
+        "sd": 0.06609403189873939,
+        "iqr": 0.09999999999999998
+      },
+      "recallAny": {
+        "n": 20,
+        "center": 1,
+        "ciLow": 1,
+        "ciHigh": 1,
+        "sd": 0,
+        "iqr": 0
+      },
+      "fpRate": {
+        "n": 20,
+        "center": 0.17875,
+        "ciLow": 0.165,
+        "ciHigh": 0.19250000000000003,
+        "sd": 0.031830141293070664,
+        "iqr": 0.05156249999999998
+      },
+      "precision": {
+        "n": 20,
+        "center": 0.4157612292498653,
+        "ciLow": 0.39771639087924027,
+        "ciHigh": 0.4342076923119854,
+        "sd": 0.04273549068571608,
+        "iqr": 0.0696112064036592
+      },
+      "pooledLeadHours": {
+        "n": 400,
+        "median": 44.75,
+        "ciLow": 40,
+        "ciHigh": 47.5,
+        "q25": 29.75,
+        "q75": 61
+      }
+    },
+    "static-battery-30/battery_decay": {
+      "replicates": 20,
+      "targetsPerReplicate": 20,
+      "recall24": {
+        "n": 20,
+        "center": 0.8399999999999999,
+        "ciLow": 0.8099999999999998,
+        "ciHigh": 0.8674999999999999,
+        "sd": 0.06609403189873939,
+        "iqr": 0.09999999999999998
+      },
+      "recallAny": {
+        "n": 20,
+        "center": 1,
+        "ciLow": 1,
+        "ciHigh": 1,
+        "sd": 0,
+        "iqr": 0
+      },
+      "fpRate": {
+        "n": 20,
+        "center": 0.17875,
+        "ciLow": 0.165,
+        "ciHigh": 0.19250000000000003,
+        "sd": 0.031830141293070664,
+        "iqr": 0.05156249999999998
+      },
+      "precision": {
+        "n": 20,
+        "center": 0.4157612292498653,
+        "ciLow": 0.39771639087924027,
+        "ciHigh": 0.4342076923119854,
+        "sd": 0.04273549068571608,
+        "iqr": 0.0696112064036592
+      },
+      "pooledLeadHours": {
+        "n": 400,
+        "median": 44.75,
+        "ciLow": 40,
+        "ciHigh": 47.5,
+        "q25": 29.75,
+        "q75": 61
+      }
+    },
+    "static-sensor-range/all": {
+      "replicates": 20,
+      "targetsPerReplicate": 20,
+      "recall24": {
+        "n": 20,
+        "center": 0.215,
+        "ciLow": 0.18249999999999997,
+        "ciHigh": 0.25,
+        "sd": 0.07796760460871588,
+        "iqr": 0.1
+      },
+      "recallAny": {
+        "n": 20,
+        "center": 0.6525,
+        "ciLow": 0.61,
+        "ciHigh": 0.6925000000000001,
+        "sd": 0.09930680795022642,
+        "iqr": 0.11249999999999993
+      },
+      "fpRate": {
+        "n": 20,
+        "center": 0,
+        "ciLow": 0,
+        "ciHigh": 0,
+        "sd": 0,
+        "iqr": 0
+      },
+      "precision": {
+        "n": 20,
+        "center": 1,
+        "ciLow": 1,
+        "ciHigh": 1,
+        "sd": 0,
+        "iqr": 0
+      },
+      "pooledLeadHours": {
+        "n": 261,
+        "median": 17,
+        "ciLow": 14.5,
+        "ciHigh": 19.25,
+        "q25": 8.5,
+        "q75": 28.5
+      }
+    },
+    "static-sensor-range/sensor_drift": {
+      "replicates": 20,
+      "targetsPerReplicate": 20,
+      "recall24": {
+        "n": 20,
+        "center": 0.215,
+        "ciLow": 0.18249999999999997,
+        "ciHigh": 0.25,
+        "sd": 0.07796760460871588,
+        "iqr": 0.1
+      },
+      "recallAny": {
+        "n": 20,
+        "center": 0.6525,
+        "ciLow": 0.61,
+        "ciHigh": 0.6925000000000001,
+        "sd": 0.09930680795022642,
+        "iqr": 0.11249999999999993
+      },
+      "fpRate": {
+        "n": 20,
+        "center": 0,
+        "ciLow": 0,
+        "ciHigh": 0,
+        "sd": 0,
+        "iqr": 0
+      },
+      "precision": {
+        "n": 20,
+        "center": 1,
+        "ciLow": 1,
+        "ciHigh": 1,
+        "sd": 0,
+        "iqr": 0
+      },
+      "pooledLeadHours": {
+        "n": 261,
+        "median": 17,
+        "ciLow": 14.5,
+        "ciHigh": 19.25,
+        "q25": 8.5,
+        "q75": 28.5
+      }
+    }
+  },
+  "tests": {
+    "recall24 anomaly vs static-battery-20 (battery_decay)": {
+      "wilcoxonSignedRankP": 0.00008637339658612575,
+      "cliffsDelta": 1,
+      "nPairs": 20
+    },
+    "recall24 anomaly vs static-sensor-range (sensor_drift)": {
+      "wilcoxonSignedRankP": 0.00007945474491366511,
+      "cliffsDelta": 1,
+      "nPairs": 20
+    }
+  }
+}

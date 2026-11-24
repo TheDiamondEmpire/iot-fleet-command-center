@@ -1,0 +1,229 @@
+
+> iot-fleet-command-center@0.1.0 experiments
+> npm run experiment:e1 && npm run experiment:e2 && npm run experiment:e3 && npm run experiment:e4 && node experiments/summarize.ts
+
+
+> iot-fleet-command-center@0.1.0 experiment:e1
+> node experiments/e1-rollout-safety.ts
+
+E1 rollout safety: 160 runs (10 per cell), fleet 100 simulated devices, SIMULATED faults
+hardware: AMD EPYC 7543P 32-Core Processor               , logical cores 4,5, affinity applied: true, machine busy before: 100%
+  [1/160] degraded-p0.1 all-at-once rep 6: exposed 100, harmed 13, paused false, final completed (8.8 s)
+  [2/160] degraded-p0.3 gated rep 4: exposed 5, harmed 2, paused true after 2199 ms, final rolled_back (7.0 s)
+  [3/160] degraded-p1.0 gated rep 6: exposed 5, harmed 5, paused true after 2242 ms, final rolled_back (7.8 s)
+  [4/160] degraded-p0.1 gated rep 2: exposed 5, harmed 1, paused true after 2171 ms, final rolled_back (6.6 s)
+  [5/160] degraded-p0.1 timer rep 9: exposed 100, harmed 6, paused false, final completed (14.2 s)
+  [6/160] bootloop-p1.0 gated rep 4: exposed 5, harmed 5, paused true after 2148 ms, final rolled_back (7.0 s)
+  [7/160] bootloop-p1.0 all-at-once rep 5: exposed 100, harmed 100, paused false, final completed (6.2 s)
+  [8/160] degraded-p0.3 all-at-once rep 3: exposed 100, harmed 33, paused false, final completed (6.7 s)
+  [9/160] bootloop-p1.0 all-at-once rep 7: exposed 100, harmed 100, paused false, final completed (5.8 s)
+  [10/160] bootloop-p1.0 all-at-once rep 1: exposed 100, harmed 100, paused false, final completed (5.8 s)
+  [11/160] bootloop-p1.0 gated rep 3: exposed 5, harmed 5, paused true after 2154 ms, final rolled_back (5.5 s)
+  [12/160] brick-p1.0 gated rep 7: exposed 5, harmed 5, paused true after 4534 ms, final rolled_back (8.0 s)
+  [13/160] degraded-p1.0 timer rep 9: exposed 100, harmed 100, paused false, final completed (13.5 s)
+  [14/160] brick-p1.0 all-at-once rep 6: exposed 100, harmed 100, paused false, final completed (8.2 s)
+  [15/160] bootloop-p1.0 timer rep 0: exposed 100, harmed 100, paused false, final completed (14.0 s)
+  [16/160] brick-p1.0 all-at-once rep 5: exposed 100, harmed 100, paused false, final completed (8.4 s)
+  [17/160] healthy-control gated rep 8: exposed 100, harmed 0, paused false, final completed (13.9 s)
+  [18/160] brick-p1.0 timer rep 4: exposed 100, harmed 100, paused false, final completed (22.9 s)
+  [19/160] degraded-p0.1 gated rep 9: exposed 100, harmed 16, paused true after 9257 ms, final rolled_back (13.8 s)
+  [20/160] bootloop-p1.0 timer rep 9: exposed 100, harmed 100, paused false, final completed (13.8 s)
+  [21/160] degraded-p1.0 gated rep 0: exposed 5, harmed 5, paused true after 2174 ms, final rolled_back (6.0 s)
+  [22/160] brick-p1.0 timer rep 0: exposed 100, harmed 100, paused false, final completed (25.0 s)
+  [23/160] degraded-p0.1 all-at-once rep 0: exposed 100, harmed 5, paused false, final completed (6.3 s)
+  [24/160] degraded-p0.3 timer rep 1: exposed 100, harmed 32, paused false, final completed (14.4 s)
+  [25/160] degraded-p0.1 gated rep 7: exposed 5, harmed 2, paused true after 2155 ms, final rolled_back (6.3 s)
+  [26/160] healthy-control gated rep 1: exposed 100, harmed 0, paused false, final completed (13.9 s)
+  [27/160] bootloop-p1.0 all-at-once rep 2: exposed 100, harmed 100, paused false, final completed (6.5 s)
+  [28/160] brick-p1.0 timer rep 3: exposed 100, harmed 100, paused false, final completed (22.0 s)
+  [29/160] bootloop-p1.0 gated rep 0: exposed 5, harmed 5, paused true after 2144 ms, final rolled_back (6.9 s)
+  [30/160] degraded-p0.3 timer rep 8: exposed 100, harmed 29, paused false, final completed (12.5 s)
+  [31/160] bootloop-p1.0 timer rep 8: exposed 100, harmed 100, paused false, final completed (12.9 s)
+  [32/160] degraded-p1.0 gated rep 5: exposed 5, harmed 5, paused true after 2167 ms, final rolled_back (7.4 s)
+  [33/160] degraded-p1.0 all-at-once rep 0: exposed 100, harmed 100, paused false, final completed (7.1 s)
+  [34/160] healthy-control gated rep 0: exposed 100, harmed 0, paused false, final completed (14.5 s)
+  [35/160] degraded-p0.1 timer rep 6: exposed 100, harmed 15, paused false, final completed (14.1 s)
+  [36/160] degraded-p0.1 timer rep 8: exposed 100, harmed 12, paused false, final completed (13.9 s)
+  [37/160] degraded-p0.3 gated rep 3: exposed 5, harmed 2, paused true after 2157 ms, final rolled_back (7.5 s)
+  [38/160] degraded-p0.3 gated rep 5: exposed 5, harmed 1, paused true after 2214 ms, final rolled_back (8.2 s)
+  [39/160] degraded-p1.0 timer rep 6: exposed 100, harmed 100, paused false, final completed (15.0 s)
+  [40/160] degraded-p0.3 gated rep 8: exposed 5, harmed 2, paused true after 2354 ms, final rolled_back (8.3 s)
+  [41/160] brick-p1.0 timer rep 5: exposed 100, harmed 100, paused false, final completed (23.2 s)
+  [42/160] brick-p1.0 timer rep 8: exposed 100, harmed 100, paused false, final completed (23.5 s)
+  [43/160] healthy-control gated rep 9: exposed 100, harmed 0, paused false, final completed (15.1 s)
+  [44/160] degraded-p0.1 gated rep 0: exposed 60, harmed 7, paused true after 6892 ms, final rolled_back (13.1 s)
+  [45/160] healthy-control gated rep 2: exposed 100, harmed 0, paused false, final completed (14.4 s)
+  [46/160] degraded-p1.0 gated rep 4: exposed 5, harmed 5, paused true after 2295 ms, final rolled_back (6.4 s)
+  [47/160] brick-p1.0 all-at-once rep 3: exposed 100, harmed 100, paused false, final completed (8.4 s)
+  [48/160] bootloop-p1.0 gated rep 7: exposed 5, harmed 5, paused true after 2196 ms, final rolled_back (6.4 s)
+  [49/160] degraded-p0.3 gated rep 1: exposed 5, harmed 3, paused true after 2182 ms, final rolled_back (8.0 s)
+  [50/160] degraded-p0.3 all-at-once rep 1: exposed 100, harmed 34, paused false, final completed (7.9 s)
+  [51/160] bootloop-p1.0 gated rep 5: exposed 5, harmed 5, paused true after 2217 ms, final rolled_back (7.3 s)
+  [52/160] bootloop-p1.0 timer rep 1: exposed 100, harmed 100, paused false, final completed (16.1 s)
+  [53/160] degraded-p0.1 timer rep 2: exposed 100, harmed 8, paused false, final completed (15.2 s)
+  [54/160] degraded-p1.0 gated rep 2: exposed 5, harmed 5, paused true after 2126 ms, final rolled_back (7.2 s)
+  [55/160] degraded-p1.0 all-at-once rep 9: exposed 100, harmed 100, paused false, final completed (8.4 s)
+  [56/160] brick-p1.0 gated rep 1: exposed 5, harmed 5, paused true after 4558 ms, final rolled_back (9.8 s)
+  [57/160] bootloop-p1.0 gated rep 6: exposed 5, harmed 5, paused true after 2217 ms, final rolled_back (7.5 s)
+  [58/160] degraded-p1.0 gated rep 3: exposed 5, harmed 5, paused true after 2180 ms, final rolled_back (7.4 s)
+  [59/160] degraded-p1.0 all-at-once rep 6: exposed 100, harmed 100, paused false, final completed (8.4 s)
+  [60/160] degraded-p0.3 gated rep 7: exposed 5, harmed 4, paused true after 2180 ms, final rolled_back (6.9 s)
+  [61/160] degraded-p1.0 gated rep 7: exposed 5, harmed 5, paused true after 2151 ms, final rolled_back (8.7 s)
+  [62/160] brick-p1.0 timer rep 1: exposed 100, harmed 100, paused false, final completed (23.3 s)
+  [63/160] degraded-p0.1 all-at-once rep 9: exposed 100, harmed 10, paused false, final completed (7.1 s)
+  [64/160] degraded-p0.3 timer rep 7: exposed 100, harmed 30, paused false, final completed (13.1 s)
+  [65/160] degraded-p1.0 all-at-once rep 3: exposed 100, harmed 100, paused false, final completed (6.7 s)
+  [66/160] degraded-p0.1 timer rep 5: exposed 100, harmed 7, paused false, final completed (15.5 s)
+  [67/160] bootloop-p1.0 timer rep 7: exposed 100, harmed 100, paused false, final completed (14.8 s)
+  [68/160] degraded-p0.3 all-at-once rep 9: exposed 100, harmed 29, paused false, final completed (8.3 s)
+  [69/160] degraded-p0.3 gated rep 0: exposed 5, harmed 2, paused true after 2367 ms, final rolled_back (7.3 s)
+  [70/160] brick-p1.0 all-at-once rep 8: exposed 100, harmed 100, paused false, final completed (8.5 s)
+  [71/160] healthy-control gated rep 3: exposed 100, harmed 0, paused false, final completed (13.2 s)
+  [72/160] healthy-control gated rep 6: exposed 100, harmed 0, paused false, final completed (14.6 s)
+  [73/160] degraded-p0.1 gated rep 1: exposed 5, harmed 1, paused true after 2163 ms, final rolled_back (7.1 s)
+  [74/160] bootloop-p1.0 gated rep 2: exposed 5, harmed 5, paused true after 2216 ms, final rolled_back (6.3 s)
+  [75/160] bootloop-p1.0 all-at-once rep 9: exposed 100, harmed 100, paused false, final completed (7.0 s)
+  [76/160] brick-p1.0 gated rep 6: exposed 5, harmed 5, paused true after 4552 ms, final rolled_back (9.3 s)
+  [77/160] bootloop-p1.0 gated rep 8: exposed 5, harmed 5, paused true after 2233 ms, final rolled_back (6.8 s)
+  [78/160] bootloop-p1.0 timer rep 6: exposed 100, harmed 100, paused false, final completed (14.4 s)
+  [79/160] degraded-p0.3 all-at-once rep 0: exposed 100, harmed 43, paused false, final completed (7.1 s)
+  [80/160] healthy-control gated rep 5: exposed 100, harmed 0, paused false, final completed (13.1 s)
+  [81/160] bootloop-p1.0 timer rep 4: exposed 100, harmed 100, paused false, final completed (15.0 s)
+  [82/160] healthy-control gated rep 4: exposed 100, harmed 0, paused false, final completed (15.6 s)
+  [83/160] degraded-p1.0 gated rep 1: exposed 5, harmed 5, paused true after 2194 ms, final rolled_back (7.6 s)
+  [84/160] degraded-p1.0 all-at-once rep 8: exposed 100, harmed 100, paused false, final completed (8.3 s)
+  [85/160] brick-p1.0 all-at-once rep 7: exposed 100, harmed 100, paused false, final completed (8.4 s)
+  [86/160] degraded-p0.3 all-at-once rep 5: exposed 100, harmed 26, paused false, final completed (6.3 s)
+  [87/160] brick-p1.0 timer rep 9: exposed 100, harmed 100, paused false, final completed (23.6 s)
+  [88/160] degraded-p0.3 all-at-once rep 7: exposed 100, harmed 34, paused false, final completed (8.7 s)
+  [89/160] brick-p1.0 all-at-once rep 1: exposed 100, harmed 100, paused false, final completed (12.4 s)
+  [90/160] brick-p1.0 gated rep 9: exposed 5, harmed 5, paused true after 4554 ms, final rolled_back (9.6 s)
+  [91/160] brick-p1.0 gated rep 5: exposed 5, harmed 5, paused true after 4602 ms, final rolled_back (9.6 s)
+  [92/160] degraded-p0.3 all-at-once rep 4: exposed 100, harmed 35, paused false, final completed (7.4 s)
+  [93/160] brick-p1.0 all-at-once rep 9: exposed 100, harmed 100, paused false, final completed (9.7 s)
+  [94/160] degraded-p0.1 all-at-once rep 4: exposed 100, harmed 12, paused false, final completed (7.6 s)
+  [95/160] brick-p1.0 timer rep 6: exposed 100, harmed 100, paused false, final completed (23.3 s)
+  [96/160] degraded-p0.1 timer rep 3: exposed 100, harmed 9, paused false, final completed (14.4 s)
+  [97/160] degraded-p0.3 timer rep 5: exposed 100, harmed 31, paused false, final completed (14.6 s)
+  [98/160] degraded-p0.3 all-at-once rep 6: exposed 100, harmed 34, paused false, final completed (7.9 s)
+  [99/160] degraded-p0.1 timer rep 1: exposed 100, harmed 12, paused false, final completed (14.7 s)
+  [100/160] brick-p1.0 timer rep 2: exposed 100, harmed 100, paused false, final completed (25.9 s)
+  [101/160] degraded-p0.1 timer rep 7: exposed 100, harmed 9, paused false, final completed (15.6 s)
+  [102/160] degraded-p1.0 all-at-once rep 4: exposed 100, harmed 100, paused false, final completed (7.8 s)
+  [103/160] degraded-p0.3 timer rep 2: exposed 100, harmed 26, paused false, final completed (16.7 s)
+  [104/160] degraded-p0.3 timer rep 4: exposed 100, harmed 30, paused false, final completed (14.2 s)
+  [105/160] degraded-p1.0 timer rep 0: exposed 100, harmed 100, paused false, final completed (13.5 s)
+  [106/160] degraded-p0.3 timer rep 3: exposed 100, harmed 28, paused false, final completed (13.8 s)
+  [107/160] degraded-p1.0 timer rep 7: exposed 100, harmed 100, paused false, final completed (14.2 s)
+  [108/160] degraded-p1.0 timer rep 3: exposed 100, harmed 100, paused false, final completed (14.2 s)
+  [109/160] brick-p1.0 gated rep 3: exposed 5, harmed 5, paused true after 4614 ms, final rolled_back (9.2 s)
+  [110/160] degraded-p0.3 all-at-once rep 8: exposed 100, harmed 37, paused false, final completed (7.8 s)
+  [111/160] degraded-p0.3 timer rep 6: exposed 100, harmed 33, paused false, final completed (14.2 s)
+  [112/160] degraded-p0.1 all-at-once rep 2: exposed 100, harmed 9, paused false, final completed (8.2 s)
+  [113/160] degraded-p0.1 all-at-once rep 7: exposed 100, harmed 3, paused false, final completed (7.6 s)
+  [114/160] degraded-p0.3 gated rep 6: exposed 5, harmed 1, paused true after 2167 ms, final rolled_back (7.0 s)
+  [115/160] bootloop-p1.0 all-at-once rep 8: exposed 100, harmed 100, paused false, final completed (6.9 s)
+  [116/160] degraded-p0.1 all-at-once rep 3: exposed 100, harmed 12, paused false, final completed (7.1 s)
+  [117/160] degraded-p0.1 gated rep 4: exposed 5, harmed 1, paused true after 2189 ms, final rolled_back (6.5 s)
+  [118/160] bootloop-p1.0 timer rep 5: exposed 100, harmed 100, paused false, final completed (15.0 s)
+  [119/160] brick-p1.0 gated rep 8: exposed 5, harmed 5, paused true after 4559 ms, final rolled_back (9.4 s)
+  [120/160] degraded-p0.1 all-at-once rep 1: exposed 100, harmed 9, paused false, final completed (8.9 s)
+  [121/160] bootloop-p1.0 all-at-once rep 0: exposed 100, harmed 100, paused false, final completed (7.9 s)
+  [122/160] degraded-p1.0 timer rep 8: exposed 100, harmed 100, paused false, final completed (15.3 s)
+  [123/160] degraded-p1.0 all-at-once rep 2: exposed 100, harmed 100, paused false, final completed (8.7 s)
+  [124/160] bootloop-p1.0 timer rep 3: exposed 100, harmed 100, paused false, final completed (14.2 s)
+  [125/160] bootloop-p1.0 gated rep 1: exposed 5, harmed 5, paused true after 2202 ms, final rolled_back (6.9 s)
+  [126/160] degraded-p1.0 timer rep 5: exposed 100, harmed 100, paused false, final completed (12.4 s)
+  [127/160] degraded-p0.1 gated rep 3: exposed 5, harmed 2, paused true after 2165 ms, final rolled_back (6.8 s)
+  [128/160] brick-p1.0 all-at-once rep 2: exposed 100, harmed 100, paused false, final completed (8.0 s)
+  [129/160] brick-p1.0 gated rep 2: exposed 5, harmed 5, paused true after 4541 ms, final rolled_back (7.9 s)
+  [130/160] bootloop-p1.0 timer rep 2: exposed 100, harmed 100, paused false, final completed (14.2 s)
+  [131/160] degraded-p0.1 all-at-once rep 8: exposed 100, harmed 9, paused false, final completed (7.0 s)
+  [132/160] degraded-p1.0 timer rep 2: exposed 100, harmed 100, paused false, final completed (13.1 s)
+  [133/160] brick-p1.0 gated rep 0: exposed 5, harmed 5, paused true after 4595 ms, final rolled_back (10.4 s)
+  [134/160] bootloop-p1.0 all-at-once rep 3: exposed 100, harmed 100, paused false, final completed (5.7 s)
+  [135/160] degraded-p0.3 timer rep 9: exposed 100, harmed 26, paused false, final completed (13.9 s)
+  [136/160] brick-p1.0 all-at-once rep 4: exposed 100, harmed 100, paused false, final completed (9.5 s)
+  [137/160] degraded-p0.1 gated rep 5: exposed 60, harmed 7, paused true after 6666 ms, final rolled_back (11.6 s)
+  [138/160] degraded-p1.0 timer rep 4: exposed 100, harmed 100, paused false, final completed (13.7 s)
+  [139/160] degraded-p0.1 all-at-once rep 5: exposed 100, harmed 10, paused false, final completed (8.5 s)
+  [140/160] degraded-p1.0 all-at-once rep 1: exposed 100, harmed 100, paused false, final completed (11.2 s)
+  [141/160] brick-p1.0 all-at-once rep 0: exposed 100, harmed 100, paused false, final completed (10.4 s)
+  [142/160] degraded-p1.0 all-at-once rep 7: exposed 100, harmed 100, paused false, final completed (7.6 s)
+  [143/160] degraded-p0.3 gated rep 9: exposed 5, harmed 3, paused true after 2199 ms, final rolled_back (8.2 s)
+  [144/160] brick-p1.0 timer rep 7: exposed 100, harmed 100, paused false, final completed (23.1 s)
+  [145/160] degraded-p0.1 timer rep 4: exposed 100, harmed 4, paused false, final completed (14.2 s)
+  [146/160] bootloop-p1.0 all-at-once rep 4: exposed 100, harmed 100, paused false, final completed (6.3 s)
+  [147/160] degraded-p1.0 all-at-once rep 5: exposed 100, harmed 100, paused false, final completed (6.4 s)
+  [148/160] bootloop-p1.0 all-at-once rep 6: exposed 100, harmed 100, paused false, final completed (6.5 s)
+  [149/160] degraded-p0.3 timer rep 0: exposed 100, harmed 35, paused false, final completed (13.6 s)
+  [150/160] brick-p1.0 gated rep 4: exposed 5, harmed 5, paused true after 4537 ms, final rolled_back (9.4 s)
+  [151/160] degraded-p0.1 timer rep 0: exposed 100, harmed 7, paused false, final completed (13.4 s)
+  [152/160] degraded-p1.0 gated rep 8: exposed 5, harmed 5, paused true after 2185 ms, final rolled_back (7.6 s)
+  [153/160] healthy-control gated rep 7: exposed 100, harmed 0, paused false, final completed (14.0 s)
+  [154/160] degraded-p1.0 timer rep 1: exposed 100, harmed 100, paused false, final completed (13.7 s)
+  [155/160] degraded-p1.0 gated rep 9: exposed 5, harmed 5, paused true after 2176 ms, final rolled_back (7.3 s)
+  [156/160] degraded-p0.1 gated rep 6: exposed 60, harmed 5, paused true after 6980 ms, final rolled_back (11.0 s)
+  [157/160] degraded-p0.3 gated rep 2: exposed 5, harmed 1, paused true after 3005 ms, final rolled_back (11.6 s)
+  [158/160] bootloop-p1.0 gated rep 9: exposed 5, harmed 5, paused true after 2173 ms, final rolled_back (7.6 s)
+  [159/160] degraded-p0.1 gated rep 8: exposed 5, harmed 1, paused true after 2229 ms, final rolled_back (7.1 s)
+  [160/160] degraded-p0.3 all-at-once rep 2: exposed 100, harmed 31, paused false, final completed (6.6 s)
+
+mean share of fleet that ran the faulty image (95% bootstrap CI), median time to pause:
+  degraded-p1.0/gated              exposed 5.0% [5.0%, 5.0%]  paused 10/10  ttp 2178 ms
+  degraded-p1.0/timer              exposed 100.0% [100.0%, 100.0%]  paused 0/10  ttp n/a
+  degraded-p1.0/all-at-once        exposed 100.0% [100.0%, 100.0%]  paused 0/10  ttp n/a
+  degraded-p0.3/gated              exposed 5.0% [5.0%, 5.0%]  paused 10/10  ttp 2199 ms
+  degraded-p0.3/timer              exposed 100.0% [100.0%, 100.0%]  paused 0/10  ttp n/a
+  degraded-p0.3/all-at-once        exposed 100.0% [100.0%, 100.0%]  paused 0/10  ttp n/a
+  degraded-p0.1/gated              exposed 31.0% [10.5%, 53.0%]  paused 10/10  ttp 2209 ms
+  degraded-p0.1/timer              exposed 100.0% [100.0%, 100.0%]  paused 0/10  ttp n/a
+  degraded-p0.1/all-at-once        exposed 100.0% [100.0%, 100.0%]  paused 0/10  ttp n/a
+  bootloop-p1.0/gated              exposed 5.0% [5.0%, 5.0%]  paused 10/10  ttp 2199 ms
+  bootloop-p1.0/timer              exposed 100.0% [100.0%, 100.0%]  paused 0/10  ttp n/a
+  bootloop-p1.0/all-at-once        exposed 100.0% [100.0%, 100.0%]  paused 0/10  ttp n/a
+  brick-p1.0/gated                 exposed 5.0% [5.0%, 5.0%]  paused 10/10  ttp 4556 ms
+  brick-p1.0/timer                 exposed 100.0% [100.0%, 100.0%]  paused 0/10  ttp n/a
+  brick-p1.0/all-at-once           exposed 100.0% [100.0%, 100.0%]  paused 0/10  ttp n/a
+  healthy-control/gated            exposed 100.0% [100.0%, 100.0%]  paused 0/10  ttp n/a
+
+wrote results/e1-runs.csv and e1-summary.json in 1754 s
+
+> iot-fleet-command-center@0.1.0 experiment:e2
+> node experiments/e2-anomaly-detection.ts
+
+E2 anomaly detection: 20 replicate fleets x 200 devices x 408 h (SIMULATED)
+hardware: AMD EPYC 7543P 32-Core Processor               , logical cores 4,5, affinity applied: true, machine busy before: 100%
+  seed 1: anomaly recall(lead>=24h)=100.0% fp=0/160
+  seed 2: anomaly recall(lead>=24h)=95.0% fp=0/160
+  seed 3: anomaly recall(lead>=24h)=100.0% fp=0/160
+  seed 4: anomaly recall(lead>=24h)=100.0% fp=0/160
+  seed 5: anomaly recall(lead>=24h)=97.5% fp=0/160
+  seed 6: anomaly recall(lead>=24h)=100.0% fp=0/160
+  seed 7: anomaly recall(lead>=24h)=95.0% fp=0/160
+  seed 8: anomaly recall(lead>=24h)=92.5% fp=0/160
+  seed 9: anomaly recall(lead>=24h)=97.5% fp=0/160
+  seed 10: anomaly recall(lead>=24h)=100.0% fp=0/160
+  seed 11: anomaly recall(lead>=24h)=97.5% fp=0/160
+  seed 12: anomaly recall(lead>=24h)=97.5% fp=0/160
+  seed 13: anomaly recall(lead>=24h)=97.5% fp=0/160
+  seed 14: anomaly recall(lead>=24h)=97.5% fp=0/160
+  seed 15: anomaly recall(lead>=24h)=97.5% fp=0/160
+  seed 16: anomaly recall(lead>=24h)=100.0% fp=0/160
+  seed 17: anomaly recall(lead>=24h)=95.0% fp=0/160
+  seed 18: anomaly recall(lead>=24h)=97.5% fp=0/160
+  seed 19: anomaly recall(lead>=24h)=97.5% fp=0/160
+  seed 20: anomaly recall(lead>=24h)=97.5% fp=0/160
+
+recall(lead >= 24 h) and false-positive device rate, mean over replicates:
+  anomaly/all                        recall24 97.6% [96.7%, 98.5%]  fp 0.00%  lead median 91.4 h (n=782)
+  anomaly/battery_decay              recall24 95.2% [93.5%, 97.0%]  fp 0.00%  lead median 85.3 h (n=382)
+  anomaly/sensor_drift               recall24 100.0% [100.0%, 100.0%]  fp 0.00%  lead median 95.3 h (n=400)
+  static-battery-20/all              recall24 54.8% [50.7%, 58.7%]  fp 0.00%  lead median 26.5 h (n=400)
+  static-battery-20/battery_decay    recall24 54.8% [50.7%, 58.7%]  fp 0.00%  lead median 26.5 h (n=400)
+  static-battery-30/all              recall24 84.0% [81.0%, 86.8%]  fp 17.88%  lead median 44.8 h (n=400)
+  static-battery-30/battery_decay    recall24 84.0% [81.0%, 86.8%]  fp 17.88%  lead median 44.8 h (n=400)
+  static-sensor-range/all            recall24 21.5% [18.2%, 25.0%]  fp 0.00%  lead median 17.0 h (n=261)
+  static-sensor-range/sensor_drift   recall24 21.5% [18.2%, 25.0%]  fp 0.00%  lead median 17.0 h (n=261)
+
+wrote results/e2-*.csv and e2-summary.json in 1279.1 s

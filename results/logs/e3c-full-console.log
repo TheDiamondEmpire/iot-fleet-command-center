@@ -1,0 +1,95 @@
+
+> iot-fleet-command-center@0.1.0 experiment:e3-supplement
+> node experiments/e3-ingest-scaling.ts --only e3c --no-early-stop --prefix e3c-full
+
+E3 ingest scaling on AMD EPYC 7543P 32-Core Processor                (8 logical cores, machine 64.6% busy before start)
+SUT pinned to logical cores 4,5 (max 2); load generator pinned to core 6; window 30 s x 3 reps; DB: in-memory SQLite
+
+== E3c-onecore devices=500 rate=1/s/dev (offered 500 msg/s) SUT cores=1
+   registered 500 devices with certificates in 5.2 s
+   connected 500/500 (failed 0) in 3.9 s; SUT affinity applied: true
+   rep 1/3: sent 15000, stored 15025, loss 0.00%, throughput 500 msg/s, commit p50/p99 35/67 ms, SUT cpu 0.12 cores, gen cpu 0.07 cores, rss 215 MB -> PASS
+   rep 2/3: sent 15008, stored 15015, loss 0.00%, throughput 500 msg/s, commit p50/p99 34/64 ms, SUT cpu 0.10 cores, gen cpu 0.06 cores, rss 167 MB -> PASS
+   rep 3/3: sent 15007, stored 15022, loss 0.00%, throughput 500 msg/s, commit p50/p99 34/64 ms, SUT cpu 0.10 cores, gen cpu 0.06 cores, rss 179 MB -> PASS
+
+== E3c-onecore devices=500 rate=2/s/dev (offered 1000 msg/s) SUT cores=1
+   registered 500 devices with certificates in 2.9 s
+   connected 500/500 (failed 0) in 1.6 s; SUT affinity applied: true
+   rep 1/3: sent 30000, stored 30065, loss 0.00%, throughput 1000 msg/s, commit p50/p99 33/65 ms, SUT cpu 0.16 cores, gen cpu 0.09 cores, rss 223 MB -> PASS
+   rep 2/3: sent 30010, stored 30055, loss 0.00%, throughput 1000 msg/s, commit p50/p99 34/65 ms, SUT cpu 0.14 cores, gen cpu 0.09 cores, rss 229 MB -> PASS
+   rep 3/3: sent 30010, stored 30055, loss 0.00%, throughput 1000 msg/s, commit p50/p99 37/79 ms, SUT cpu 0.20 cores, gen cpu 0.11 cores, rss 187 MB -> PASS
+
+== E3c-onecore devices=500 rate=4/s/dev (offered 2000 msg/s) SUT cores=1
+   registered 500 devices with certificates in 4.8 s
+   connected 500/500 (failed 0) in 1.7 s; SUT affinity applied: true
+   rep 1/3: sent 60030, stored 60090, loss 0.00%, throughput 2001 msg/s, commit p50/p99 33/65 ms, SUT cpu 0.23 cores, gen cpu 0.14 cores, rss 235 MB -> PASS
+   rep 2/3: sent 60020, stored 60080, loss 0.00%, throughput 2001 msg/s, commit p50/p99 34/65 ms, SUT cpu 0.23 cores, gen cpu 0.14 cores, rss 246 MB -> PASS
+   rep 3/3: sent 60050, stored 60120, loss 0.00%, throughput 1999 msg/s, commit p50/p99 40/355 ms, SUT cpu 0.23 cores, gen cpu 0.14 cores, rss 259 MB -> PASS
+
+== E3c-onecore devices=500 rate=8/s/dev (offered 4000 msg/s) SUT cores=1
+   registered 500 devices with certificates in 2.3 s
+   connected 500/500 (failed 0) in 2.1 s; SUT affinity applied: true
+   rep 1/3: sent 120800, stored 120876, loss 0.00%, throughput 3968 msg/s, commit p50/p99 204/1378 ms, SUT cpu 0.37 cores, gen cpu 0.20 cores, rss 300 MB -> FAIL
+   rep 2/3: sent 120500, stored 120740, loss 0.00%, throughput 3991 msg/s, commit p50/p99 112/536 ms, SUT cpu 0.43 cores, gen cpu 0.25 cores, rss 333 MB -> PASS
+   rep 3/3: sent 120560, stored 120760, loss 0.00%, throughput 3996 msg/s, commit p50/p99 106/434 ms, SUT cpu 0.45 cores, gen cpu 0.27 cores, rss 365 MB -> PASS
+
+== E3c-onecore devices=500 rate=16/s/dev (offered 8000 msg/s) SUT cores=1
+   registered 500 devices with certificates in 5.1 s
+   connected 500/500 (failed 0) in 3.6 s; SUT affinity applied: true
+   rep 1/3: sent 240769, stored 243362, loss 0.00%, throughput 8077 msg/s, commit p50/p99 98/534 ms, SUT cpu 0.62 cores, gen cpu 0.38 cores, rss 355 MB -> PASS
+   rep 2/3: sent 241462, stored 242064, loss 0.00%, throughput 7978 msg/s, commit p50/p99 76/332 ms, SUT cpu 0.68 cores, gen cpu 0.40 cores, rss 407 MB -> PASS
+   rep 3/3: sent 241654, stored 242530, loss 0.00%, throughput 7992 msg/s, commit p50/p99 89/346 ms, SUT cpu 0.67 cores, gen cpu 0.40 cores, rss 447 MB -> PASS
+
+== E3c-onecore devices=500 rate=32/s/dev (offered 16000 msg/s) SUT cores=1
+   registered 500 devices with certificates in 4.2 s
+   connected 500/500 (failed 0) in 4.5 s; SUT affinity applied: true
+   rep 1/3: sent 505166, stored 530917, loss 0.00%, throughput 15392 msg/s, commit p50/p99 782/4040 ms, SUT cpu 0.67 cores, gen cpu 0.54 cores, rss 424 MB -> FAIL
+   rep 2/3: sent 480667, stored 485839, loss 0.00%, throughput 16138 msg/s, commit p50/p99 315/4035 ms, SUT cpu 0.71 cores, gen cpu 0.54 cores, rss 518 MB -> FAIL
+   rep 3/3: sent 483750, stored 501638, loss 0.00%, throughput 16505 msg/s, commit p50/p99 250/3348 ms, SUT cpu 0.70 cores, gen cpu 0.52 cores, rss 579 MB -> FAIL
+
+== E3c-onecore devices=500 rate=64/s/dev (offered 32000 msg/s) SUT cores=1
+   registered 500 devices with certificates in 3.2 s
+   connected 500/500 (failed 0) in 3.8 s; SUT affinity applied: true
+   rep 1/3: sent 963167, stored 722000, loss 25.04%, throughput 13573 msg/s, commit p50/p99 23586/35527 ms, SUT cpu 0.48 cores, gen cpu 0.50 cores, rss 1095 MB -> FAIL
+   rep 2/3: sent 1023334, stored 752000, loss 26.51%, throughput 10887 msg/s, commit p50/p99 39287/73751 ms, SUT cpu 0.44 cores, gen cpu 0.36 cores, rss 1310 MB -> FAIL
+   rep 3/3: sent 960500, stored 1018000, loss 0.00%, throughput 19787 msg/s, commit p50/p99 46096/78207 ms, SUT cpu 0.49 cores, gen cpu 0.26 cores, rss 1454 MB -> FAIL
+
+ceilings (largest step that met every criterion in every repetition):
+{
+  "E3c": {
+    "rule": {
+      "maxLoss": 0.01,
+      "maxP99Ms": 1000,
+      "minConnectedShare": 0.99
+    },
+    "devices": 500,
+    "sutCores": 1,
+    "ladder": [
+      1,
+      2,
+      4,
+      8,
+      16,
+      32,
+      64,
+      128
+    ],
+    "earlyStop": false,
+    "passingRatesPerDevice": [
+      1,
+      2,
+      4,
+      16
+    ],
+    "failingRatesPerDevice": [
+      8,
+      32,
+      64
+    ],
+    "largestPassingMsgPerSecBelowFirstFailure": 2000,
+    "ladderExhausted": false,
+    "stopped": null
+  }
+}
+
+wrote results/e3c-full-*.csv and e3c-full-summary.json in 1036 s

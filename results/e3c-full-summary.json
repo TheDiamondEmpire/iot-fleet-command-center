@@ -1,0 +1,78 @@
+{
+  "experiment": "E3",
+  "simulated": true,
+  "quick": false,
+  "startedAt": "2026-10-22T15:53:51.039Z",
+  "wallSeconds": 1035.579,
+  "protocol": {
+    "windowSeconds": 30,
+    "repsPerStep": 3,
+    "only": "e3c",
+    "earlyStop": false,
+    "criteria": {
+      "maxLoss": 0.01,
+      "maxP99Ms": 1000,
+      "minConnectedShare": 0.99
+    },
+    "database": "SQLite in memory",
+    "transport": "mTLS over a Windows named pipe / Unix socket",
+    "qos": 1,
+    "payloadBytes": "~110",
+    "sutCores": [
+      4,
+      5
+    ],
+    "generatorCores": [
+      6
+    ]
+  },
+  "hardware": {
+    "cpuModel": "AMD EPYC 7543P 32-Core Processor               ",
+    "logicalCores": 8,
+    "totalMemGB": 28,
+    "platform": "win32 x64",
+    "osRelease": "10.0.26200",
+    "node": "v25.9.0",
+    "machineCpuBusyPctBefore": 64.6,
+    "coresAvailableToExperiment": "logical cores 4,5",
+    "affinityApplied": false,
+    "note": "shared machine: other projects were running at the same time; see machineBusyPctBefore per step"
+  },
+  "lockfileSha256Prefix": "b06b22d0101304d1",
+  "ceilings": {
+    "E3c": {
+      "rule": {
+        "maxLoss": 0.01,
+        "maxP99Ms": 1000,
+        "minConnectedShare": 0.99
+      },
+      "devices": 500,
+      "sutCores": 1,
+      "ladder": [
+        1,
+        2,
+        4,
+        8,
+        16,
+        32,
+        64,
+        128
+      ],
+      "earlyStop": false,
+      "passingRatesPerDevice": [
+        1,
+        2,
+        4,
+        16
+      ],
+      "failingRatesPerDevice": [
+        8,
+        32,
+        64
+      ],
+      "largestPassingMsgPerSecBelowFirstFailure": 2000,
+      "ladderExhausted": false,
+      "stopped": null
+    }
+  }
+}

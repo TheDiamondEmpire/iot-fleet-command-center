@@ -1,0 +1,144 @@
+{
+  "experiment": "E3",
+  "simulated": true,
+  "quick": false,
+  "startedAt": "2026-10-22T14:54:08.517Z",
+  "wallSeconds": 3578.068,
+  "protocol": {
+    "windowSeconds": 30,
+    "repsPerStep": 3,
+    "only": "all",
+    "earlyStop": true,
+    "criteria": {
+      "maxLoss": 0.01,
+      "maxP99Ms": 1000,
+      "minConnectedShare": 0.99
+    },
+    "database": "SQLite in memory",
+    "transport": "mTLS over a Windows named pipe / Unix socket",
+    "qos": 1,
+    "payloadBytes": "~110",
+    "sutCores": [
+      4,
+      5
+    ],
+    "generatorCores": [
+      6
+    ]
+  },
+  "hardware": {
+    "cpuModel": "AMD EPYC 7543P 32-Core Processor               ",
+    "logicalCores": 8,
+    "totalMemGB": 28,
+    "platform": "win32 x64",
+    "osRelease": "10.0.26200",
+    "node": "v25.9.0",
+    "machineCpuBusyPctBefore": 100,
+    "coresAvailableToExperiment": "logical cores 4,5",
+    "affinityApplied": false,
+    "note": "shared machine: other projects were running at the same time; see machineBusyPctBefore per step"
+  },
+  "lockfileSha256Prefix": "b06b22d0101304d1",
+  "ceilings": {
+    "E3a": {
+      "rule": {
+        "maxLoss": 0.01,
+        "maxP99Ms": 1000,
+        "minConnectedShare": 0.99
+      },
+      "ratePerDevice": 0.1,
+      "ladder": [
+        250,
+        500,
+        1000,
+        2000,
+        4000,
+        8000,
+        16000,
+        32000
+      ],
+      "earlyStop": true,
+      "passingDevices": [
+        250,
+        500,
+        1000,
+        2000,
+        4000,
+        8000
+      ],
+      "failingDevices": [],
+      "largestPassingDevicesBelowFirstFailure": 8000,
+      "ladderExhausted": false,
+      "stopped": {
+        "stoppedBy": "memory-guard",
+        "skippedStep": 16000,
+        "freeGB": 6.0576171875,
+        "projectedGB": 5.46875,
+        "reserveGB": 3
+      }
+    },
+    "E3b": {
+      "rule": {
+        "maxLoss": 0.01,
+        "maxP99Ms": 1000,
+        "minConnectedShare": 0.99
+      },
+      "devices": 500,
+      "ladder": [
+        1,
+        2,
+        4,
+        8,
+        16,
+        32,
+        64,
+        128
+      ],
+      "earlyStop": true,
+      "passingRatesPerDevice": [
+        1,
+        2,
+        4,
+        8
+      ],
+      "failingRatesPerDevice": [
+        16
+      ],
+      "largestPassingMsgPerSecBelowFirstFailure": 4000,
+      "ladderExhausted": false,
+      "stopped": null
+    },
+    "E3c": {
+      "rule": {
+        "maxLoss": 0.01,
+        "maxP99Ms": 1000,
+        "minConnectedShare": 0.99
+      },
+      "devices": 500,
+      "sutCores": 1,
+      "ladder": [
+        1,
+        2,
+        4,
+        8,
+        16,
+        32,
+        64,
+        128
+      ],
+      "earlyStop": true,
+      "passingRatesPerDevice": [
+        1,
+        2,
+        4,
+        8
+      ],
+      "failingRatesPerDevice": [
+        16
+      ],
+      "largestPassingMsgPerSecBelowFirstFailure": 4000,
+      "ladderExhausted": false,
+      "stopped": null
+    }
+  }
+}

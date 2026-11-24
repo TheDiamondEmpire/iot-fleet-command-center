@@ -1,0 +1,918 @@
+{
+  "experiment": "E1",
+  "simulated": true,
+  "quick": false,
+  "startedAt": "2026-10-21T23:08:18.341Z",
+  "wallSeconds": 1753.691,
+  "protocol": {
+    "fleet": 100,
+    "repsPerCell": 10,
+    "telemetryIntervalMs": 200,
+    "rings": [
+      {
+        "name": "canary",
+        "percent": 5
+      },
+      {
+        "name": "early",
+        "percent": 25
+      },
+      {
+        "name": "broad",
+        "percent": 60
+      },
+      {
+        "name": "all",
+        "percent": 100
+      }
+    ],
+    "gate": {
+      "soakMs": 2000,
+      "ringTimeoutMs": 10000,
+      "minSamples": 3,
+      "maxBadDeviceRate": 0.1,
+      "maxErrorsPerSample": 0.5,
+      "maxRebootsPerSample": 0.2
+    },
+    "scenarios": [
+      {
+        "id": "degraded-p1.0",
+        "mode": "degraded",
+        "pFault": 1
+      },
+      {
+        "id": "degraded-p0.3",
+        "mode": "degraded",
+        "pFault": 0.3
+      },
+      {
+        "id": "degraded-p0.1",
+        "mode": "degraded",
+        "pFault": 0.1
+      },
+      {
+        "id": "bootloop-p1.0",
+        "mode": "bootloop",
+        "pFault": 1
+      },
+      {
+        "id": "brick-p1.0",
+        "mode": "brick",
+        "pFault": 1
+      },
+      {
+        "id": "healthy-control",
+        "mode": "ok",
+        "pFault": 0
+      }
+    ],
+    "arms": [
+      "gated",
+      "timer",
+      "all-at-once"
+    ],
+    "firstRingSize": 5
+  },
+  "hardware": {
+    "cpuModel": "AMD EPYC 7543P 32-Core Processor               ",
+    "logicalCores": 8,
+    "totalMemGB": 28,
+    "platform": "win32 x64",
+    "osRelease": "10.0.26200",
+    "node": "v25.9.0",
+    "machineCpuBusyPctBefore": 100,
+    "coresAvailableToExperiment": "logical cores 4,5",
+    "affinityApplied": true
+  },
+  "lockfileSha256Prefix": "b06b22d0101304d1",
+  "cells": {
+    "degraded-p1.0/gated": {
+      "n": 10,
+      "exposedShare": {
+        "n": 10,
+        "center": 0.049999999999999996,
+        "ciLow": 0.049999999999999996,
+        "ciHigh": 0.049999999999999996,
+        "sd": 7.314236392868128e-18,
+        "iqr": 0
+      },
+      "harmedShare": {
+        "n": 10,
+        "center": 0.049999999999999996,
+        "ciLow": 0.049999999999999996,
+        "ciHigh": 0.049999999999999996,
+        "sd": 7.314236392868128e-18,
+        "iqr": 0
+      },
+      "harmedAtEndShare": {
+        "n": 10,
+        "center": 0,
+        "ciLow": 0,
+        "ciHigh": 0,
+        "sd": 0,
+        "iqr": 0
+      },
+      "exposedAtMostFirstRing": {
+        "k": 10,
+        "n": 10,
+        "p": 1,
+        "low": 0.7224671969739421,
+        "high": 0.9999999999999999
+      },
+      "pausedRuns": {
+        "k": 10,
+        "n": 10,
+        "p": 1,
+        "low": 0.7224671969739421,
+        "high": 0.9999999999999999
+      },
+      "timeToPauseMs": {
+        "n": 10,
+        "median": 2178,
+        "mean": 2189,
+        "ciLow": 2163.5,
+        "ciHigh": 2213.5
+      },
+      "timeToPauseTelemetryIntervals": 10.89,
+      "finalStates": {
+        "rolled_back": 10
+      }
+    },
+    "degraded-p1.0/timer": {
+      "n": 10,
+      "exposedShare": {
+        "n": 10,
+        "center": 1,
+        "ciLow": 1,
+        "ciHigh": 1,
+        "sd": 0,
+        "iqr": 0
+      },
+      "harmedShare": {
+        "n": 10,
+        "center": 1,
+        "ciLow": 1,
+        "ciHigh": 1,
+        "sd": 0,
+        "iqr": 0
+      },
+      "harmedAtEndShare": {
+        "n": 10,
+        "center": 1,
+        "ciLow": 1,
+        "ciHigh": 1,
+        "sd": 0,
+        "iqr": 0
+      },
+      "exposedAtMostFirstRing": {
+        "k": 0,
+        "n": 10,
+        "p": 0,
+        "low": 0,
+        "high": 0.2775328030260577
+      },
+      "pausedRuns": {
+        "k": 0,
+        "n": 10,
+        "p": 0,
+        "low": 0,
+        "high": 0.2775328030260577
+      },
+      "timeToPauseMs": null,
+      "timeToPauseTelemetryIntervals": null,
+      "finalStates": {
+        "completed": 10
+      }
+    },
+    "degraded-p1.0/all-at-once": {
+      "n": 10,
+      "exposedShare": {
+        "n": 10,
+        "center": 1,
+        "ciLow": 1,
+        "ciHigh": 1,
+        "sd": 0,
+        "iqr": 0
+      },
+      "harmedShare": {
+        "n": 10,
+        "center": 1,
+        "ciLow": 1,
+        "ciHigh": 1,
+        "sd": 0,
+        "iqr": 0
+      },
+      "harmedAtEndShare": {
+        "n": 10,
+        "center": 1,
+        "ciLow": 1,
+        "ciHigh": 1,
+        "sd": 0,
+        "iqr": 0
+      },
+      "exposedAtMostFirstRing": {
+        "k": 10,
+        "n": 10,
+        "p": 1,
+        "low": 0.7224671969739421,
+        "high": 0.9999999999999999
+      },
+      "pausedRuns": {
+        "k": 0,
+        "n": 10,
+        "p": 0,
+        "low": 0,
+        "high": 0.2775328030260577
+      },
+      "timeToPauseMs": null,
+      "timeToPauseTelemetryIntervals": null,
+      "finalStates": {
+        "completed": 10
+      }
+    },
+    "degraded-p0.3/gated": {
+      "n": 10,
+      "exposedShare": {
+        "n": 10,
+        "center": 0.049999999999999996,
+        "ciLow": 0.049999999999999996,
+        "ciHigh": 0.049999999999999996,
+        "sd": 7.314236392868128e-18,
+        "iqr": 0
+      },
+      "harmedShare": {
+        "n": 10,
+        "center": 0.021,
+        "ciLow": 0.015975,
+        "ciHigh": 0.027000000000000003,
+        "sd": 0.009944289260117532,
+        "iqr": 0.015
+      },
+      "harmedAtEndShare": {
+        "n": 10,
+        "center": 0,
+        "ciLow": 0,
+        "ciHigh": 0,
+        "sd": 0,
+        "iqr": 0
+      },
+      "exposedAtMostFirstRing": {
+        "k": 10,
+        "n": 10,
+        "p": 1,
+        "low": 0.7224671969739421,
+        "high": 0.9999999999999999
+      },
+      "pausedRuns": {
+        "k": 10,
+        "n": 10,
+        "p": 1,
+        "low": 0.7224671969739421,
+        "high": 0.9999999999999999
+      },
+      "timeToPauseMs": {
+        "n": 10,
+        "median": 2199,
+        "mean": 2302.4,
+        "ciLow": 2174.5,
+        "ciHigh": 2354
+      },
+      "timeToPauseTelemetryIntervals": 10.995,
+      "finalStates": {
+        "rolled_back": 10
+      }
+    },
+    "degraded-p0.3/timer": {
+      "n": 10,
+      "exposedShare": {
+        "n": 10,
+        "center": 1,
+        "ciLow": 1,
+        "ciHigh": 1,
+        "sd": 0,
+        "iqr": 0
+      },
+      "harmedShare": {
+        "n": 10,
+        "center": 0.30000000000000004,
+        "ciLow": 0.284,
+        "ciHigh": 0.316,
+        "sd": 0.02905932629027115,
+        "iqr": 0.034999999999999976
+      },
+      "harmedAtEndShare": {
+        "n": 10,
+        "center": 0.30000000000000004,
+        "ciLow": 0.284,
+        "ciHigh": 0.316,
+        "sd": 0.02905932629027115,
+        "iqr": 0.034999999999999976
+      },
+      "exposedAtMostFirstRing": {
+        "k": 0,
+        "n": 10,
+        "p": 0,
+        "low": 0,
+        "high": 0.2775328030260577
+      },
+      "pausedRuns": {
+        "k": 0,
+        "n": 10,
+        "p": 0,
+        "low": 0,
+        "high": 0.2775328030260577
+      },
+      "timeToPauseMs": null,
+      "timeToPauseTelemetryIntervals": null,
+      "finalStates": {
+        "completed": 10
+      }
+    },
+    "degraded-p0.3/all-at-once": {
+      "n": 10,
+      "exposedShare": {
+        "n": 10,
+        "center": 1,
+        "ciLow": 1,
+        "ciHigh": 1,
+        "sd": 0,
+        "iqr": 0
+      },
+      "harmedShare": {
+        "n": 10,
+        "center": 0.33599999999999997,
+        "ciLow": 0.30999999999999994,
+        "ciHigh": 0.36300000000000004,
+        "sd": 0.045752959831395976,
+        "iqr": 0.03249999999999997
+      },
+      "harmedAtEndShare": {
+        "n": 10,
+        "center": 0.33599999999999997,
+        "ciLow": 0.30999999999999994,
+        "ciHigh": 0.36300000000000004,
+        "sd": 0.045752959831395976,
+        "iqr": 0.03249999999999997
+      },
+      "exposedAtMostFirstRing": {
+        "k": 10,
+        "n": 10,
+        "p": 1,
+        "low": 0.7224671969739421,
+        "high": 0.9999999999999999
+      },
+      "pausedRuns": {
+        "k": 0,
+        "n": 10,
+        "p": 0,
+        "low": 0,
+        "high": 0.2775328030260577
+      },
+      "timeToPauseMs": null,
+      "timeToPauseTelemetryIntervals": null,
+      "finalStates": {
+        "completed": 10
+      }
+    },
+    "degraded-p0.1/gated": {
+      "n": 10,
+      "exposedShare": {
+        "n": 10,
+        "center": 0.31,
+        "ciLow": 0.10500000000000002,
+        "ciHigh": 0.53,
+        "sd": 0.35496478698597694,
+        "iqr": 0.5499999999999999
+      },
+      "harmedShare": {
+        "n": 10,
+        "center": 0.043000000000000003,
+        "ciLow": 0.019,
+        "ciHigh": 0.07500000000000001,
+        "sd": 0.0478539444560216,
+        "iqr": 0.055
+      },
+      "harmedAtEndShare": {
+        "n": 10,
+        "center": 0,
+        "ciLow": 0,
+        "ciHigh": 0,
+        "sd": 0,
+        "iqr": 0
+      },
+      "exposedAtMostFirstRing": {
+        "k": 6,
+        "n": 10,
+        "p": 0.6,
+        "low": 0.3126737679211953,
+        "high": 0.831819671473593
+      },
+      "pausedRuns": {
+        "k": 10,
+        "n": 10,
+        "p": 1,
+        "low": 0.7224671969739421,
+        "high": 0.9999999999999999
+      },
+      "timeToPauseMs": {
+        "n": 10,
+        "median": 2209,
+        "mean": 4286.7,
+        "ciLow": 2165,
+        "ciHigh": 6892
+      },
+      "timeToPauseTelemetryIntervals": 11.045,
+      "finalStates": {
+        "rolled_back": 10
+      }
+    },
+    "degraded-p0.1/timer": {
+      "n": 10,
+      "exposedShare": {
+        "n": 10,
+        "center": 1,
+        "ciLow": 1,
+        "ciHigh": 1,
+        "sd": 0,
+        "iqr": 0
+      },
+      "harmedShare": {
+        "n": 10,
+        "center": 0.089,
+        "ciLow": 0.071,
+        "ciHigh": 0.10899999999999999,
+        "sd": 0.032812599206199236,
+        "iqr": 0.04249999999999998
+      },
+      "harmedAtEndShare": {
+        "n": 10,
+        "center": 0.089,
+        "ciLow": 0.071,
+        "ciHigh": 0.10899999999999999,
+        "sd": 0.032812599206199236,
+        "iqr": 0.04249999999999998
+      },
+      "exposedAtMostFirstRing": {
+        "k": 0,
+        "n": 10,
+        "p": 0,
+        "low": 0,
+        "high": 0.2775328030260577
+      },
+      "pausedRuns": {
+        "k": 0,
+        "n": 10,
+        "p": 0,
+        "low": 0,
+        "high": 0.2775328030260577
+      },
+      "timeToPauseMs": null,
+      "timeToPauseTelemetryIntervals": null,
+      "finalStates": {
+        "completed": 10
+      }
+    },
+    "degraded-p0.1/all-at-once": {
+      "n": 10,
+      "exposedShare": {
+        "n": 10,
+        "center": 1,
+        "ciLow": 1,
+        "ciHigh": 1,
+        "sd": 0,
+        "iqr": 0
+      },
+      "harmedShare": {
+        "n": 10,
+        "center": 0.092,
+        "ciLow": 0.07100000000000001,
+        "ciHigh": 0.10899999999999999,
+        "sd": 0.031198290551460242,
+        "iqr": 0.024999999999999994
+      },
+      "harmedAtEndShare": {
+        "n": 10,
+        "center": 0.092,
+        "ciLow": 0.07100000000000001,
+        "ciHigh": 0.10899999999999999,
+        "sd": 0.031198290551460242,
+        "iqr": 0.024999999999999994
+      },
+      "exposedAtMostFirstRing": {
+        "k": 10,
+        "n": 10,
+        "p": 1,
+        "low": 0.7224671969739421,
+        "high": 0.9999999999999999
+      },
+      "pausedRuns": {
+        "k": 0,
+        "n": 10,
+        "p": 0,
+        "low": 0,
+        "high": 0.2775328030260577
+      },
+      "timeToPauseMs": null,
+      "timeToPauseTelemetryIntervals": null,
+      "finalStates": {
+        "completed": 10
+      }
+    },
+    "bootloop-p1.0/gated": {
+      "n": 10,
+      "exposedShare": {
+        "n": 10,
+        "center": 0.049999999999999996,
+        "ciLow": 0.049999999999999996,
+        "ciHigh": 0.049999999999999996,
+        "sd": 7.314236392868128e-18,
+        "iqr": 0
+      },
+      "harmedShare": {
+        "n": 10,
+        "center": 0.049999999999999996,
+        "ciLow": 0.049999999999999996,
+        "ciHigh": 0.049999999999999996,
+        "sd": 7.314236392868128e-18,
+        "iqr": 0
+      },
+      "harmedAtEndShare": {
+        "n": 10,
+        "center": 0,
+        "ciLow": 0,
+        "ciHigh": 0,
+        "sd": 0,
+        "iqr": 0
+      },
+      "exposedAtMostFirstRing": {
+        "k": 10,
+        "n": 10,
+        "p": 1,
+        "low": 0.7224671969739421,
+        "high": 0.9999999999999999
+      },
+      "pausedRuns": {
+        "k": 10,
+        "n": 10,
+        "p": 1,
+        "low": 0.7224671969739421,
+        "high": 0.9999999999999999
+      },
+      "timeToPauseMs": {
+        "n": 10,
+        "median": 2199,
+        "mean": 2190,
+        "ciLow": 2154,
+        "ciHigh": 2217
+      },
+      "timeToPauseTelemetryIntervals": 10.995,
+      "finalStates": {
+        "rolled_back": 10
+      }
+    },
+    "bootloop-p1.0/timer": {
+      "n": 10,
+      "exposedShare": {
+        "n": 10,
+        "center": 1,
+        "ciLow": 1,
+        "ciHigh": 1,
+        "sd": 0,
+        "iqr": 0
+      },
+      "harmedShare": {
+        "n": 10,
+        "center": 1,
+        "ciLow": 1,
+        "ciHigh": 1,
+        "sd": 0,
+        "iqr": 0
+      },
+      "harmedAtEndShare": {
+        "n": 10,
+        "center": 0,
+        "ciLow": 0,
+        "ciHigh": 0,
+        "sd": 0,
+        "iqr": 0
+      },
+      "exposedAtMostFirstRing": {
+        "k": 0,
+        "n": 10,
+        "p": 0,
+        "low": 0,
+        "high": 0.2775328030260577
+      },
+      "pausedRuns": {
+        "k": 0,
+        "n": 10,
+        "p": 0,
+        "low": 0,
+        "high": 0.2775328030260577
+      },
+      "timeToPauseMs": null,
+      "timeToPauseTelemetryIntervals": null,
+      "finalStates": {
+        "completed": 10
+      }
+    },
+    "bootloop-p1.0/all-at-once": {
+      "n": 10,
+      "exposedShare": {
+        "n": 10,
+        "center": 1,
+        "ciLow": 1,
+        "ciHigh": 1,
+        "sd": 0,
+        "iqr": 0
+      },
+      "harmedShare": {
+        "n": 10,
+        "center": 1,
+        "ciLow": 1,
+        "ciHigh": 1,
+        "sd": 0,
+        "iqr": 0
+      },
+      "harmedAtEndShare": {
+        "n": 10,
+        "center": 0,
+        "ciLow": 0,
+        "ciHigh": 0,
+        "sd": 0,
+        "iqr": 0
+      },
+      "exposedAtMostFirstRing": {
+        "k": 10,
+        "n": 10,
+        "p": 1,
+        "low": 0.7224671969739421,
+        "high": 0.9999999999999999
+      },
+      "pausedRuns": {
+        "k": 0,
+        "n": 10,
+        "p": 0,
+        "low": 0,
+        "high": 0.2775328030260577
+      },
+      "timeToPauseMs": null,
+      "timeToPauseTelemetryIntervals": null,
+      "finalStates": {
+        "completed": 10
+      }
+    },
+    "brick-p1.0/gated": {
+      "n": 10,
+      "exposedShare": {
+        "n": 10,
+        "center": 0.049999999999999996,
+        "ciLow": 0.049999999999999996,
+        "ciHigh": 0.049999999999999996,
+        "sd": 7.314236392868128e-18,
+        "iqr": 0
+      },
+      "harmedShare": {
+        "n": 10,
+        "center": 0.049999999999999996,
+        "ciLow": 0.049999999999999996,
+        "ciHigh": 0.049999999999999996,
+        "sd": 7.314236392868128e-18,
+        "iqr": 0
+      },
+      "harmedAtEndShare": {
+        "n": 10,
+        "center": 0.049999999999999996,
+        "ciLow": 0.049999999999999996,
+        "ciHigh": 0.049999999999999996,
+        "sd": 7.314236392868128e-18,
+        "iqr": 0
+      },
+      "exposedAtMostFirstRing": {
+        "k": 10,
+        "n": 10,
+        "p": 1,
+        "low": 0.7224671969739421,
+        "high": 0.9999999999999999
+      },
+      "pausedRuns": {
+        "k": 10,
+        "n": 10,
+        "p": 1,
+        "low": 0.7224671969739421,
+        "high": 0.9999999999999999
+      },
+      "timeToPauseMs": {
+        "n": 10,
+        "median": 4556,
+        "mean": 4564.6,
+        "ciLow": 4541,
+        "ciHigh": 4595.0875
+      },
+      "timeToPauseTelemetryIntervals": 22.78,
+      "finalStates": {
+        "rolled_back": 10
+      }
+    },
+    "brick-p1.0/timer": {
+      "n": 10,
+      "exposedShare": {
+        "n": 10,
+        "center": 1,
+        "ciLow": 1,
+        "ciHigh": 1,
+        "sd": 0,
+        "iqr": 0
+      },
+      "harmedShare": {
+        "n": 10,
+        "center": 1,
+        "ciLow": 1,
+        "ciHigh": 1,
+        "sd": 0,
+        "iqr": 0
+      },
+      "harmedAtEndShare": {
+        "n": 10,
+        "center": 1,
+        "ciLow": 1,
+        "ciHigh": 1,
+        "sd": 0,
+        "iqr": 0
+      },
+      "exposedAtMostFirstRing": {
+        "k": 0,
+        "n": 10,
+        "p": 0,
+        "low": 0,
+        "high": 0.2775328030260577
+      },
+      "pausedRuns": {
+        "k": 0,
+        "n": 10,
+        "p": 0,
+        "low": 0,
+        "high": 0.2775328030260577
+      },
+      "timeToPauseMs": null,
+      "timeToPauseTelemetryIntervals": null,
+      "finalStates": {
+        "completed": 10
+      }
+    },
+    "brick-p1.0/all-at-once": {
+      "n": 10,
+      "exposedShare": {
+        "n": 10,
+        "center": 1,
+        "ciLow": 1,
+        "ciHigh": 1,
+        "sd": 0,
+        "iqr": 0
+      },
+      "harmedShare": {
+        "n": 10,
+        "center": 1,
+        "ciLow": 1,
+        "ciHigh": 1,
+        "sd": 0,
+        "iqr": 0
+      },
+      "harmedAtEndShare": {
+        "n": 10,
+        "center": 1,
+        "ciLow": 1,
+        "ciHigh": 1,
+        "sd": 0,
+        "iqr": 0
+      },
+      "exposedAtMostFirstRing": {
+        "k": 10,
+        "n": 10,
+        "p": 1,
+        "low": 0.7224671969739421,
+        "high": 0.9999999999999999
+      },
+      "pausedRuns": {
+        "k": 0,
+        "n": 10,
+        "p": 0,
+        "low": 0,
+        "high": 0.2775328030260577
+      },
+      "timeToPauseMs": null,
+      "timeToPauseTelemetryIntervals": null,
+      "finalStates": {
+        "completed": 10
+      }
+    },
+    "healthy-control/gated": {
+      "n": 10,
+      "exposedShare": {
+        "n": 10,
+        "center": 1,
+        "ciLow": 1,
+        "ciHigh": 1,
+        "sd": 0,
+        "iqr": 0
+      },
+      "harmedShare": {
+        "n": 10,
+        "center": 0,
+        "ciLow": 0,
+        "ciHigh": 0,
+        "sd": 0,
+        "iqr": 0
+      },
+      "harmedAtEndShare": {
+        "n": 10,
+        "center": 0,
+        "ciLow": 0,
+        "ciHigh": 0,
+        "sd": 0,
+        "iqr": 0
+      },
+      "exposedAtMostFirstRing": {
+        "k": 0,
+        "n": 10,
+        "p": 0,
+        "low": 0,
+        "high": 0.2775328030260577
+      },
+      "pausedRuns": {
+        "k": 0,
+        "n": 10,
+        "p": 0,
+        "low": 0,
+        "high": 0.2775328030260577
+      },
+      "timeToPauseMs": null,
+      "timeToPauseTelemetryIntervals": null,
+      "finalStates": {
+        "completed": 10
+      }
+    }
+  },
+  "tests": {
+    "degraded-p1.0: exposure gated vs all-at-once": {
+      "mannWhitneyP": 0.000013081952737525882,
+      "cliffsDelta": -1,
+      "nGated": 10,
+      "nBase": 10
+    },
+    "degraded-p1.0: exposure gated vs timer": {
+      "mannWhitneyP": 0.000013081952737525882,
+      "cliffsDelta": -1,
+      "nGated": 10,
+      "nBase": 10
+    },
+    "degraded-p0.3: exposure gated vs all-at-once": {
+      "mannWhitneyP": 0.000013081952737525882,
+      "cliffsDelta": -1,
+      "nGated": 10,
+      "nBase": 10
+    },
+    "degraded-p0.3: exposure gated vs timer": {
+      "mannWhitneyP": 0.000013081952737525882,
+      "cliffsDelta": -1,
+      "nGated": 10,
+      "nBase": 10
+    },
+    "degraded-p0.1: exposure gated vs all-at-once": {
+      "mannWhitneyP": 0.0001502459126643263,
+      "cliffsDelta": -0.9,
+      "nGated": 10,
+      "nBase": 10
+    },
+    "degraded-p0.1: exposure gated vs timer": {
+      "mannWhitneyP": 0.0001502459126643263,
+      "cliffsDelta": -0.9,
+      "nGated": 10,
+      "nBase": 10
+    },
+    "bootloop-p1.0: exposure gated vs all-at-once": {
+      "mannWhitneyP": 0.000013081952737525882,
+      "cliffsDelta": -1,
+      "nGated": 10,
+      "nBase": 10
+    },
+    "bootloop-p1.0: exposure gated vs timer": {
+      "mannWhitneyP": 0.000013081952737525882,
+      "cliffsDelta": -1,
+      "nGated": 10,
+      "nBase": 10
+    },
+    "brick-p1.0: exposure gated vs all-at-once": {
+      "mannWhitneyP": 0.000013081952737525882,
+      "cliffsDelta": -1,
+      "nGated": 10,
+      "nBase": 10
+    },
+    "brick-p1.0: exposure gated vs timer": {
+      "mannWhitneyP": 0.000013081952737525882,
+      "cliffsDelta": -1,
+      "nGated": 10,
+      "nBase": 10
+    }
+  }
+}

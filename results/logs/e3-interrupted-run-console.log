@@ -1,0 +1,106 @@
+
+> iot-fleet-command-center@0.1.0 experiment:e3
+> node experiments/e3-ingest-scaling.ts
+
+E3 ingest scaling on AMD EPYC 7543P 32-Core Processor                (8 logical cores, machine 99.6% busy before start)
+SUT pinned to logical cores 4,5 (max 2); load generator pinned to core 6; window 30 s x 3 reps; DB: in-memory SQLite
+   waiting for memory: 1.0 GB available (commit headroom 5.5 GB), step needs 0.1 GB plus a 1 GB reserve
+
+== E3a-devices devices=250 rate=0.1/s/dev (offered 25 msg/s) SUT cores=2
+   registered 250 devices with certificates in 4.9 s
+   connected 250/250 (failed 0) in 1.7 s; SUT affinity applied: true
+   rep 1/3: sent 750, stored 751, loss 0.00%, throughput 25 msg/s, commit p50/p99 38/66 ms, SUT cpu 0.02 cores, gen cpu 0.01 cores, rss 123 MB -> PASS
+   rep 2/3: sent 751, stored 752, loss 0.00%, throughput 25 msg/s, commit p50/p99 37/66 ms, SUT cpu 0.02 cores, gen cpu 0.01 cores, rss 124 MB -> PASS
+   rep 3/3: sent 751, stored 751, loss 0.00%, throughput 25 msg/s, commit p50/p99 35/66 ms, SUT cpu 0.02 cores, gen cpu 0.01 cores, rss 125 MB -> PASS
+
+== E3a-devices devices=500 rate=0.1/s/dev (offered 50 msg/s) SUT cores=2
+   registered 500 devices with certificates in 9.0 s
+   connected 500/500 (failed 0) in 2.6 s; SUT affinity applied: true
+   rep 1/3: sent 1500, stored 1501, loss 0.00%, throughput 50 msg/s, commit p50/p99 39/66 ms, SUT cpu 0.03 cores, gen cpu 0.03 cores, rss 155 MB -> PASS
+   rep 2/3: sent 1501, stored 1504, loss 0.00%, throughput 50 msg/s, commit p50/p99 34/64 ms, SUT cpu 0.02 cores, gen cpu 0.02 cores, rss 155 MB -> PASS
+   rep 3/3: sent 1501, stored 1502, loss 0.00%, throughput 50 msg/s, commit p50/p99 46/228 ms, SUT cpu 0.02 cores, gen cpu 0.01 cores, rss 157 MB -> PASS
+
+== E3a-devices devices=1000 rate=0.1/s/dev (offered 100 msg/s) SUT cores=2
+   registered 1000 devices with certificates in 16.9 s
+   connected 1000/1000 (failed 0) in 3.7 s; SUT affinity applied: true
+   rep 1/3: sent 3001, stored 3005, loss 0.00%, throughput 100 msg/s, commit p50/p99 46/194 ms, SUT cpu 0.06 cores, gen cpu 0.03 cores, rss 213 MB -> PASS
+   rep 2/3: sent 3001, stored 3006, loss 0.00%, throughput 100 msg/s, commit p50/p99 47/162 ms, SUT cpu 0.04 cores, gen cpu 0.03 cores, rss 220 MB -> PASS
+   rep 3/3: sent 3002, stored 3008, loss 0.00%, throughput 100 msg/s, commit p50/p99 46/87 ms, SUT cpu 0.04 cores, gen cpu 0.02 cores, rss 221 MB -> PASS
+
+== E3a-devices devices=2000 rate=0.1/s/dev (offered 200 msg/s) SUT cores=2
+   registered 2000 devices with certificates in 15.7 s
+   connected 2000/2000 (failed 0) in 7.7 s; SUT affinity applied: true
+   rep 1/3: sent 6004, stored 6014, loss 0.00%, throughput 200 msg/s, commit p50/p99 35/65 ms, SUT cpu 0.08 cores, gen cpu 0.04 cores, rss 338 MB -> PASS
+   rep 2/3: sent 6003, stored 6009, loss 0.00%, throughput 200 msg/s, commit p50/p99 42/334 ms, SUT cpu 0.08 cores, gen cpu 0.04 cores, rss 347 MB -> PASS
+   rep 3/3: sent 6003, stored 6012, loss 0.00%, throughput 200 msg/s, commit p50/p99 36/66 ms, SUT cpu 0.07 cores, gen cpu 0.04 cores, rss 349 MB -> PASS
+   waiting for memory: 1.7 GB available (commit headroom 5.4 GB), step needs 1.4 GB plus a 1 GB reserve
+   waiting for memory: 2.2 GB available (commit headroom 5.8 GB), step needs 1.4 GB plus a 1 GB reserve
+   waiting for memory: 1.8 GB available (commit headroom 5.4 GB), step needs 1.4 GB plus a 1 GB reserve
+   waiting for memory: 1.9 GB available (commit headroom 5.1 GB), step needs 1.4 GB plus a 1 GB reserve
+   waiting for memory: 2.0 GB available (commit headroom 4.7 GB), step needs 1.4 GB plus a 1 GB reserve
+
+== E3a-devices devices=4000 rate=0.1/s/dev (offered 400 msg/s) SUT cores=2
+   registered 4000 devices with certificates in 31.4 s
+   connected 4000/4000 (failed 0) in 22.1 s; SUT affinity applied: true
+   rep 1/3: sent 12006, stored 12012, loss 0.00%, throughput 400 msg/s, commit p50/p99 35/65 ms, SUT cpu 0.09 cores, gen cpu 0.05 cores, rss 672 MB -> PASS
+   rep 2/3: sent 12002, stored 12010, loss 0.00%, throughput 400 msg/s, commit p50/p99 36/70 ms, SUT cpu 0.10 cores, gen cpu 0.06 cores, rss 675 MB -> PASS
+   rep 3/3: sent 12008, stored 12014, loss 0.00%, throughput 400 msg/s, commit p50/p99 36/67 ms, SUT cpu 0.08 cores, gen cpu 0.06 cores, rss 676 MB -> PASS
+   waiting for memory: 2.7 GB available (commit headroom 5.3 GB), step needs 2.7 GB plus a 1 GB reserve
+   waiting for memory: 2.7 GB available (commit headroom 5.3 GB), step needs 2.7 GB plus a 1 GB reserve
+   waiting for memory: 3.6 GB available (commit headroom 5.6 GB), step needs 2.7 GB plus a 1 GB reserve
+   waiting for memory: 3.4 GB available (commit headroom 5.8 GB), step needs 2.7 GB plus a 1 GB reserve
+   waiting for memory: 3.4 GB available (commit headroom 5.8 GB), step needs 2.7 GB plus a 1 GB reserve
+   waiting for memory: 3.0 GB available (commit headroom 6.1 GB), step needs 2.7 GB plus a 1 GB reserve
+   waiting for memory: 3.1 GB available (commit headroom 6.4 GB), step needs 2.7 GB plus a 1 GB reserve
+   waiting for memory: 3.7 GB available (commit headroom 6.6 GB), step needs 2.7 GB plus a 1 GB reserve
+   waiting for memory: 3.5 GB available (commit headroom 6.3 GB), step needs 2.7 GB plus a 1 GB reserve
+
+== E3a-devices devices=8000 rate=0.1/s/dev (offered 800 msg/s) SUT cores=2
+   registered 8000 devices with certificates in 37.5 s
+   connected 8000/8000 (failed 0) in 26.2 s; SUT affinity applied: true
+   rep 1/3: sent 24016, stored 24040, loss 0.00%, throughput 800 msg/s, commit p50/p99 35/69 ms, SUT cpu 0.15 cores, gen cpu 0.09 cores, rss 1156 MB -> PASS
+   rep 2/3: sent 24004, stored 24056, loss 0.00%, throughput 800 msg/s, commit p50/p99 35/66 ms, SUT cpu 0.11 cores, gen cpu 0.07 cores, rss 1172 MB -> PASS
+   rep 3/3: sent 24016, stored 24028, loss 0.00%, throughput 800 msg/s, commit p50/p99 36/67 ms, SUT cpu 0.13 cores, gen cpu 0.08 cores, rss 1075 MB -> PASS
+   waiting for memory: 5.7 GB available (commit headroom 7.5 GB), step needs 5.5 GB plus a 1 GB reserve
+   waiting for memory: 5.5 GB available (commit headroom 7.4 GB), step needs 5.5 GB plus a 1 GB reserve
+   waiting for memory: 5.5 GB available (commit headroom 7.5 GB), step needs 5.5 GB plus a 1 GB reserve
+   waiting for memory: 5.4 GB available (commit headroom 7.4 GB), step needs 5.5 GB plus a 1 GB reserve
+   waiting for memory: 6.0 GB available (commit headroom 6.8 GB), step needs 5.5 GB plus a 1 GB reserve
+   waiting for memory: 5.9 GB available (commit headroom 7.0 GB), step needs 5.5 GB plus a 1 GB reserve
+   waiting for memory: 6.0 GB available (commit headroom 7.2 GB), step needs 5.5 GB plus a 1 GB reserve
+   waiting for memory: 5.8 GB available (commit headroom 7.1 GB), step needs 5.5 GB plus a 1 GB reserve
+   waiting for memory: 5.7 GB available (commit headroom 7.7 GB), step needs 5.5 GB plus a 1 GB reserve
+   waiting for memory: 5.6 GB available (commit headroom 7.2 GB), step needs 5.5 GB plus a 1 GB reserve
+   waiting for memory: 5.8 GB available (commit headroom 8.1 GB), step needs 5.5 GB plus a 1 GB reserve
+   waiting for memory: 5.4 GB available (commit headroom 7.6 GB), step needs 5.5 GB plus a 1 GB reserve
+   waiting for memory: 5.5 GB available (commit headroom 7.4 GB), step needs 5.5 GB plus a 1 GB reserve
+   waiting for memory: 5.6 GB available (commit headroom 7.4 GB), step needs 5.5 GB plus a 1 GB reserve
+   waiting for memory: 5.5 GB available (commit headroom 7.4 GB), step needs 5.5 GB plus a 1 GB reserve
+   waiting for memory: 5.3 GB available (commit headroom 7.3 GB), step needs 5.5 GB plus a 1 GB reserve
+   waiting for memory: 5.1 GB available (commit headroom 7.2 GB), step needs 5.5 GB plus a 1 GB reserve
+   waiting for memory: 5.0 GB available (commit headroom 7.2 GB), step needs 5.5 GB plus a 1 GB reserve
+   waiting for memory: 5.2 GB available (commit headroom 7.2 GB), step needs 5.5 GB plus a 1 GB reserve
+   waiting for memory: 5.2 GB available (commit headroom 7.2 GB), step needs 5.5 GB plus a 1 GB reserve
+   waiting for memory: 5.1 GB available (commit headroom 7.1 GB), step needs 5.5 GB plus a 1 GB reserve
+   waiting for memory: 5.0 GB available (commit headroom 7.2 GB), step needs 5.5 GB plus a 1 GB reserve
+   waiting for memory: 5.0 GB available (commit headroom 7.2 GB), step needs 5.5 GB plus a 1 GB reserve
+   waiting for memory: 4.9 GB available (commit headroom 7.2 GB), step needs 5.5 GB plus a 1 GB reserve
+   waiting for memory: 4.8 GB available (commit headroom 7.2 GB), step needs 5.5 GB plus a 1 GB reserve
+   waiting for memory: 4.9 GB available (commit headroom 7.4 GB), step needs 5.5 GB plus a 1 GB reserve
+   waiting for memory: 4.8 GB available (commit headroom 7.2 GB), step needs 5.5 GB plus a 1 GB reserve
+   waiting for memory: 4.8 GB available (commit headroom 7.3 GB), step needs 5.5 GB plus a 1 GB reserve
+   waiting for memory: 5.0 GB available (commit headroom 6.9 GB), step needs 5.5 GB plus a 1 GB reserve
+   waiting for memory: 5.2 GB available (commit headroom 7.1 GB), step needs 5.5 GB plus a 1 GB reserve
+   waiting for memory: 5.1 GB available (commit headroom 7.1 GB), step needs 5.5 GB plus a 1 GB reserve
+   waiting for memory: 5.2 GB available (commit headroom 7.3 GB), step needs 5.5 GB plus a 1 GB reserve
+   waiting for memory: 4.9 GB available (commit headroom 7.1 GB), step needs 5.5 GB plus a 1 GB reserve
+   waiting for memory: 4.9 GB available (commit headroom 7.1 GB), step needs 5.5 GB plus a 1 GB reserve
+   waiting for memory: 5.1 GB available (commit headroom 7.9 GB), step needs 5.5 GB plus a 1 GB reserve
+   waiting for memory: 4.9 GB available (commit headroom 7.2 GB), step needs 5.5 GB plus a 1 GB reserve
+   waiting for memory: 4.7 GB available (commit headroom 7.1 GB), step needs 5.5 GB plus a 1 GB reserve
+   waiting for memory: 5.1 GB available (commit headroom 7.1 GB), step needs 5.5 GB plus a 1 GB reserve
+   waiting for memory: 4.5 GB available (commit headroom 7.1 GB), step needs 5.5 GB plus a 1 GB reserve
+   waiting for memory: 4.4 GB available (commit headroom 7.2 GB), step needs 5.5 GB plus a 1 GB reserve
+   waiting for memory: 4.3 GB available (commit headroom 7.1 GB), step needs 5.5 GB plus a 1 GB reserve
+   waiting for memory: 4.3 GB available (commit headroom 7.2 GB), step needs 5.5 GB plus a 1 GB reserve
+   waiting for memory: 4.6 GB available (commit headroom 7.2 GB), step needs 5.5 GB plus a 1 GB reserve

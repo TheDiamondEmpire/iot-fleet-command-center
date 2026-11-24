@@ -1,0 +1,155 @@
+{
+  "experiment": "E4",
+  "quick": false,
+  "startedAt": "2026-10-22T01:07:59.268Z",
+  "wallSeconds": 26.205,
+  "protocol": {
+    "modes": [
+      "mtls",
+      "secret-tls",
+      "secret-plain"
+    ],
+    "blocks": 10,
+    "connectionsPerBlock": 200,
+    "warmupConnectionsPerMode": 50,
+    "transport": "named pipe / unix socket (not TCP)",
+    "tls": "TLS 1.2+ (TLS 1.3 negotiated), ECDSA P-256 certificates, full handshake every connection",
+    "driverCore": [
+      6
+    ]
+  },
+  "hardware": {
+    "cpuModel": "AMD EPYC 7543P 32-Core Processor               ",
+    "logicalCores": 8,
+    "totalMemGB": 28,
+    "platform": "win32 x64",
+    "osRelease": "10.0.26200",
+    "node": "v25.9.0",
+    "machineCpuBusyPctBefore": 100,
+    "coresAvailableToExperiment": "logical cores 4,5",
+    "affinityApplied": true,
+    "sutAffinityApplied": true,
+    "driverAffinityApplied": true
+  },
+  "lockfileSha256Prefix": "b06b22d0101304d1",
+  "modes": {
+    "mtls": {
+      "medianConnectMs": {
+        "n": 10,
+        "center": 5.741584999999214,
+        "ciLow": 5.501474250001183,
+        "ciHigh": 6.008410124998082,
+        "sd": 0.4388465057197287,
+        "iqr": 0.6681374999961918
+      },
+      "p95ConnectMs": {
+        "n": 10,
+        "center": 12.192046999999993,
+        "ciLow": 10.387917724999955,
+        "ciHigh": 14.65989372499955,
+        "sd": 3.728181831858531,
+        "iqr": 3.327682500000675
+      },
+      "sutCpuUsPerConnection": {
+        "n": 10,
+        "center": 2906.5,
+        "ciLow": 2673,
+        "ciHigh": 3180.1749999999993,
+        "sd": 423.60260465047503,
+        "iqr": 298.75
+      },
+      "connections": 2000
+    },
+    "secret-tls": {
+      "medianConnectMs": {
+        "n": 10,
+        "center": 3.7064500000004044,
+        "ciLow": 3.536986625001109,
+        "ciHigh": 3.9277487499999184,
+        "sd": 0.3519272494262453,
+        "iqr": 0.3398250000036569
+      },
+      "p95ConnectMs": {
+        "n": 10,
+        "center": 6.410461499998616,
+        "ciLow": 5.2549642374977825,
+        "ciHigh": 8.037338099998491,
+        "sd": 2.454260481232928,
+        "iqr": 2.0043887500016275
+      },
+      "sutCpuUsPerConnection": {
+        "n": 10,
+        "center": 1875,
+        "ciLow": 1727.4875,
+        "ciHigh": 2039,
+        "sd": 262.5727412441064,
+        "iqr": 350
+      },
+      "connections": 2000
+    },
+    "secret-plain": {
+      "medianConnectMs": {
+        "n": 10,
+        "center": 0.642750000000342,
+        "ciLow": 0.5776180000000386,
+        "ciHigh": 0.7334651250004253,
+        "sd": 0.13449987814958328,
+        "iqr": 0.06210000000282889
+      },
+      "p95ConnectMs": {
+        "n": 10,
+        "center": 3.6943645000001353,
+        "ciLow": 2.7846155000009905,
+        "ciHigh": 4.967481599999946,
+        "sd": 1.837809645430691,
+        "iqr": 1.5307237499977404
+      },
+      "sutCpuUsPerConnection": {
+        "n": 10,
+        "center": 788.5,
+        "ciLow": 611.475,
+        "ciHigh": 1013.5249999999999,
+        "sd": 339.94321421215176,
+        "iqr": 136.25
+      },
+      "connections": 2000
+    }
+  },
+  "comparisons": {
+    "mtls vs secret-tls: median connect time": {
+      "n": 10,
+      "meanRatio": 1.5560171093622022,
+      "overheadPct": 55.601710936220215,
+      "ciLowPct": 47.726553228735824,
+      "ciHighPct": 63.57144148021882
+    },
+    "mtls vs secret-tls: broker CPU per connection": {
+      "n": 10,
+      "meanRatio": 1.5636540236193093,
+      "overheadPct": 56.365402361930926,
+      "ciLowPct": 43.93980809511926,
+      "ciHighPct": 73.1013776794232
+    },
+    "mtls vs secret-plain: median connect time": {
+      "n": 10,
+      "meanRatio": 9.18135955442685,
+      "overheadPct": 818.135955442685,
+      "ciLowPct": 725.7997739851312,
+      "ciHighPct": 899.0783215520985
+    },
+    "secret-tls vs secret-plain: median connect time": {
+      "n": 10,
+      "meanRatio": 5.8728030172757295,
+      "overheadPct": 487.280301727573,
+      "ciLowPct": 448.13041486619863,
+      "ciHighPct": 523.0435234780911
+    },
+    "mtls vs secret-plain: broker CPU per connection": {
+      "n": 10,
+      "meanRatio": 4.119217300254272,
+      "overheadPct": 311.9217300254272,
+      "ciLowPct": 238.56359200657,
+      "ciHighPct": 388.41636854660544
+    }
+  }
+}
